@@ -26,3 +26,21 @@ nav {
   top: 60px;
   border-radius: 0px;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 157px;
+  background: #716b72;
+  color: #F5F4F5;
+  padding: 20px;
+}
+
+.header--logo{
+position: absolute;
+width: 150px;
+height: 60px;
+right: 21px;
+top: 60px;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
