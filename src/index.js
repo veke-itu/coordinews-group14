@@ -1,5 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom";
+import "./index.css";
 import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./App.css";
 
-ReactDOM.render(<App />, document.getElementById("root"))
+import Parse from "parse";
+
+Parse.initialize(
+  "KqoIYLreqOxM9D4hI1VyukJBa7yj03D1dTd75CzR",
+  "zPHndnwR1xEJVLyz1An9bktfus78e1uKmP9F4lVJ"
+);
+
+Parse.serverURL = "https://parseapi.back4app.com/";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+Parse.initialize()
