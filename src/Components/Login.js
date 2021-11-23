@@ -10,16 +10,11 @@ export default function Login() {
 
   function handleLoginAttempt(e) {
     e.preventDefault();
-    console.log("prevented default");
-
-    console.log(username);
-    console.log(password);
 
     const user = new Parse.User();
     user.setPassword(password);
     user.setUsername(username);
     user.logIn().then((loggedInUser) => {
-      console.log(loggedInUser);
       navigate("/ideas");
     });
   }
