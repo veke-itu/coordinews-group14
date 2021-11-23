@@ -14,6 +14,9 @@ export default function LandingPage() {
         <img src="../Images/Coordinews.png"></img>
       </div>
       <div>
+        <br></br>
+        <br></br>
+        <br></br>
         <h3 className="landingPage--heading">
           Cooperate like never before and concentrate on the things that really matter to you
         </h3>
