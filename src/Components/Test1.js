@@ -1,4 +1,5 @@
 import Table from 'react-bootstrap/Table';
+import { getUsers } from '../DatabaseInteraction/db';
 
 const dataTest = [
     {
@@ -40,14 +41,53 @@ export default function Test() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>1</td>
                         {Array.from({ length: varNamesL }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
+                            <tr>
+                                <td>{index}</td>
+                                {Array.from({ length: varNamesL }).map((_, index) => (
+                                    <td key={index}>Table cell {index + 1}</td>
+                                ))}
+                            </tr>               
                         ))}
-                        </tr>
+                        
                     </tbody>
     </Table>
     </div>
     )
 }
+
+useEffect(() => {
+    getUsers().then((Users) => {
+      const randomWord =
+        Users[Math.floor(Math.random() * Users.length)];
+      setTranslation(randomWord);
+    });
+  }, []);
+
+  export function Exercises() {
+    const [translation, setTranslation] = useState();
+  
+    useEffect(() => {
+      getTranslations().then((translations) => {
+        const randomWord =
+          translations[Math.floor(Math.random() * translations.length)];
+        setTranslation(randomWord);
+      });
+    }, []);
+  
+    if (!translation) {
+      return <p>Loading...</p>;
+    }
+  
+    return (
+      <>
+        <h1>
+          <img
+            style={{ maxWidth: "100%" }}
+            src={translation.get("image").get("file").url()}
+          />
+          <b>{translation.get("from")}</b> = ?{" "}
+        </h1>
+      </>
+    );
+  }
