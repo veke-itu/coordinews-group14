@@ -5,7 +5,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
+import Test from './Test1';
 import "../App.css"
+
 
 export default function Articles() {
     return(
@@ -86,6 +88,9 @@ export default function Articles() {
                 <br></br>
                 <br></br>
                 <br></br>
+                <Table />
+                <h1>Hallo</h1>
+                <Test/>
             </div>
         </>
     )
