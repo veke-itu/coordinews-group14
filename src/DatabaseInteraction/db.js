@@ -4,7 +4,7 @@ async function getUsers() {
   const User = Parse.Object.extend("User");
   const query = new Parse.Query(User);
 
-  return await query.find();
+  return await query.findAll();
 }
 
-export { getUsers };
+export {getUsers};

@@ -1,5 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import { getUsers } from '../DatabaseInteraction/db';
+import { useEffect, useState } from "react";
 
 const dataTest = [
     {
@@ -24,10 +25,42 @@ const dataTest = [
     }]
 
 const varNames = Object.keys(dataTest[0])   
-const varNamesL = varNames.length 
-
+const varNamesL = varNames.length
 
 export default function Test() {
+
+    const [Users, setUsers] = useState();
+
+    useEffect(() => {
+        getUsers().then((Users) => {
+            console.log(Users)
+            const usersMapped = Users.map(wrapper => { 
+                console.log('Processing user', wrapper.id)
+                const attributes = wrapper.attributes
+                console.log('Processing Attributes', wrapper.attributes)
+
+                const mappedUser = {
+                    id: wrapper.id,
+                    username: wrapper.attributes.username
+                }
+
+                console.log('Processing FullUser', mappedUser)
+
+                // mappedUser.username = attributes.username
+                return mappedUser
+            })
+
+            console.log(usersMapped)
+            console.log(Object.keys(usersMapped[0]))
+
+            setUsers(usersMapped);
+        });
+    }, []);
+    
+const testNames = Object.keys(Users[0])
+const testNamesL = testNames.length
+console.log(testNames[0])
+
     return(
     <div>
     
@@ -35,8 +68,8 @@ export default function Test() {
                     <thead>
                         <tr>
                         <th>#</th>
-                        {Array.from({ length: varNamesL }).map((_, index) => (
-                            <th key={index}>{varNames[index]}</th>
+                        {Array.from({ length: testNamesL }).map((_, index) => (
+                            <th key={index}>{testNames[index]}</th>
                         ))}
                         </tr>
                     </thead>
@@ -55,39 +88,3 @@ export default function Test() {
     </div>
     )
 }
-
-useEffect(() => {
-    getUsers().then((Users) => {
-      const randomWord =
-        Users[Math.floor(Math.random() * Users.length)];
-      setTranslation(randomWord);
-    });
-  }, []);
-
-  export function Exercises() {
-    const [translation, setTranslation] = useState();
-  
-    useEffect(() => {
-      getTranslations().then((translations) => {
-        const randomWord =
-          translations[Math.floor(Math.random() * translations.length)];
-        setTranslation(randomWord);
-      });
-    }, []);
-  
-    if (!translation) {
-      return <p>Loading...</p>;
-    }
-  
-    return (
-      <>
-        <h1>
-          <img
-            style={{ maxWidth: "100%" }}
-            src={translation.get("image").get("file").url()}
-          />
-          <b>{translation.get("from")}</b> = ?{" "}
-        </h1>
-      </>
-    );
-  }
