@@ -11,7 +11,7 @@ export default function LandingPage() {
   return (
     <div>
       <div>
-        <img src="../Images/Coordinews.png"></img>
+        <img src="./Images/Coordinews.png" alt=""></img>
       </div>
       <div>
         <br></br>
