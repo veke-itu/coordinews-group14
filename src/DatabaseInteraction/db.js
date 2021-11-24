@@ -2,9 +2,17 @@ import Parse from "parse";
 
 async function getUsers() {
   const User = Parse.Object.extend("User");
-  const query = new Parse.Query(User);
+  const queryUser = new Parse.Query(User);
 
-  return await query.findAll();
+  return await queryUser.findAll();
 }
 
-export {getUsers};
+async function getArticles() {
+  const Article = Parse.Object.extend("Article");
+  const queryArticle = new Parse.Query(Article);
+
+  return await queryArticle.findAll();
+}
+
+export {getUsers, getArticles};
+

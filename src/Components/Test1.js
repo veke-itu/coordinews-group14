@@ -1,5 +1,5 @@
 import Table from 'react-bootstrap/Table';
-import { getUsers } from '../DatabaseInteraction/db';
+import { getUsers, getArticles } from '../DatabaseInteraction/db';
 import { useEffect, useState } from "react";
 
 const dataTest = [
@@ -30,6 +30,7 @@ const varNamesL = varNames.length
 export default function Test() {
 
     const [Users, setUsers] = useState();
+    const [Articles, setArticle] = useState();
 
     useEffect(() => {
         getUsers().then((Users) => {
@@ -46,20 +47,49 @@ export default function Test() {
 
                 console.log('Processing FullUser', mappedUser)
 
-                // mappedUser.username = attributes.username
                 return mappedUser
             })
 
             console.log(usersMapped)
+            console.log(usersMapped.id)
             console.log(Object.keys(usersMapped[0]))
 
             setUsers(usersMapped);
+            // setId();
+            // setUsername();
         });
     }, []);
-    
-const testNames = Object.keys(Users[0])
-const testNamesL = testNames.length
-console.log(testNames[0])
+
+    useEffect(() => {
+        getArticles().then((Articles) => {
+            console.log(Articles)
+            const articlesMapped = Articles.map(wrapperA => { 
+                console.log('Processing user', wrapperA.id)
+                const attributesA = wrapperA.attributes
+                console.log('Processing Attributes', wrapperA.attributes)
+
+                const mappedArticle = {
+                    title: wrapperA.attributes.Title,
+                    journalist: wrapperA.attributes.Journalist
+                }
+
+                console.log(mappedArticle)
+
+                return mappedArticle
+
+            })
+
+            console.log('Processing Article', articlesMapped)
+            setArticle(articlesMapped)
+
+        })
+    }, []);
+
+// console.log(Articles)
+// console.log(Articles[0].title)
+// const articlesNames = Object.keys(Articles[0])
+// console.log(articlesNames)
+// const articlesNamesL = articlesNames.length
 
     return(
     <div>
@@ -68,8 +98,8 @@ console.log(testNames[0])
                     <thead>
                         <tr>
                         <th>#</th>
-                        {Array.from({ length: testNamesL }).map((_, index) => (
-                            <th key={index}>{testNames[index]}</th>
+                        {Array.from({ length: varNamesL }).map((_, index) => (
+                            <th key={index}>{varNames[index]}</th>
                         ))}
                         </tr>
                     </thead>
@@ -78,7 +108,7 @@ console.log(testNames[0])
                             <tr>
                                 <td>{index}</td>
                                 {Array.from({ length: varNamesL }).map((_, index) => (
-                                    <td key={index}>Table cell {index + 1}</td>
+                                    <td key={index}>{varNames[index]}</td>
                                 ))}
                             </tr>               
                         ))}
