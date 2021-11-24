@@ -18,7 +18,7 @@ export default function SignUp() {
     try {
       await user.signUp();
     } catch (error) {
-      alert("Error: " + error.message + "Please go back an try again :)");
+      alert("Error: " + error.message + "Please go back and try again :)");
     }
     navigate("/ideas");
   }
