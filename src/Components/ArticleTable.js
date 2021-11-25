@@ -2,6 +2,7 @@ import Table from 'react-bootstrap/Table';
 import { getUsers, getArticles } from '../DatabaseInteraction/db';
 import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';
+import { useNavigate, Link } from "react-router-dom";
 
 const dataTest = [
     {
@@ -87,7 +88,10 @@ export default function Articletable() {
                         {Array.from({ length: rowLength }).map((_, index) => (
                             <tr>
                                 {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
-                                <td>{Articles[index].ArticleId}</td>
+                                <td >
+                                    {/* TODO: Link Reference */}
+                                    <a as={Link} to="/signup">{Articles[index].ArticleId}</a>
+                                </td>
                                 <td>{Articles[index].Title}</td>
                                 <td>{Articles[index].Section}</td>
                                 <td>{Articles[index].Journalist}</td>

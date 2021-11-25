@@ -1,6 +1,7 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Parse from "parse";
 import { useNavigate, Link } from "react-router-dom";
+import Image from 'react-bootstrap/Image';
 //import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import "../App.css"
 

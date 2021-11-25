@@ -17,11 +17,9 @@ export default function Articles() {
             <div>
                 <p className="overview--header">Article Overview</p>
                 
-                <button className="status-buttons">Archive</button>
-                
             </div>
             <div className="background--box">
-                <ButtonGroup className="button">
+                <ButtonGroup >
 
                     <Form className="d-flex">
                         <FormControl
@@ -46,8 +44,11 @@ export default function Articles() {
                     </DropdownButton>
 
                 </ButtonGroup>
-                <br></br>
-                <br></br>
+                <ButtonGroup aria-label="Basic example" className="button--adjust">
+                    <Button variant="secondary">Current</Button>
+                    <Button variant="secondary">Archive</Button>
+                </ButtonGroup>
+                
                 <br></br>
                 <Articletable/>
             </div>

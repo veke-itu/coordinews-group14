@@ -82,6 +82,10 @@
   padding-right: 20px;
 }
 
+.button--adjust{
+ left: 330px; 
+}
+
 #search--button{
   position: absolute;
   width: 312px;
