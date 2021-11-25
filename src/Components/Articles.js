@@ -1,4 +1,3 @@
-import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -6,6 +5,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Articletable from './ArticleTable';
+import { useNavigate, Link } from "react-router-dom";
 import "../App.css";
 
 
@@ -51,6 +51,7 @@ export default function Articles() {
                 
                 <br></br>
                 <Articletable/>
+                <Button variant="light" as={Link} to="/Add_Article">Add Article</Button>
             </div>
         </>
     )

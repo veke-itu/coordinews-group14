@@ -14,5 +14,27 @@ async function getArticles() {
   return await queryArticle.findAll();
 }
 
-export {getUsers, getArticles};
+async function uploadArticle(articles) {
+
+  return await Promise.all(
+    articles.map((article) => {
+      const Article = Parse.Object.extend("Article");
+      const newArticle = new Article();
+      newArticle.set("Title", article.title);
+      newArticle.set("Section", article.section);
+      newArticle.set("Journalist", article.journalist);
+      newArticle.set("Photographer", article.photographer);
+
+      try {
+        return newArticle.save();
+      } catch (error) {
+        alert(error);
+        return Promise.reject("something went wrong");
+      }
+    })
+  );
+}
+
+
+export {getUsers, getArticles, uploadArticle};
 

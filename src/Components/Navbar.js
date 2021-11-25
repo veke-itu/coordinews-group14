@@ -58,6 +58,11 @@ export function NavigationBar() {
                       <Nav.Link onClick={handleSignOut} as={Link} to="/">
                         Sign Out
                       </Nav.Link>
+
+                      <Nav.Link as={Link} to="/a">
+                        Name
+                      </Nav.Link>
+                      
                     </>
                   )}
                 </Nav>

@@ -1,33 +1,9 @@
 import Table from 'react-bootstrap/Table';
-import { getUsers, getArticles } from '../DatabaseInteraction/db';
+import { getArticles } from '../DatabaseInteraction/db';
 import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';
-import { useNavigate, Link } from "react-router-dom";
-
-const dataTest = [
-    {
-        id: 1,
-        title: "Life Lessons with Katie Zaferes",
-        description: "I will share with you what I call \"Positively Impactful Moments of Disappointment.\" Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments is what gave me the ability to rise above them and reach my goals.",
-        price: 136,
-        coverImg: "katie-zaferes.png",
-        stats: 5,
-        location: "Online",
-        openSpots: 0,
-    },
-    {
-        id: 2,
-        title: "Learn Wedding Photography",
-        description: "Interested in becoming a wedding photographer? For beginner and experienced photographers alike, join us in learning techniques required to leave the happy couple with memories that'll last a lifetime.",
-        price: 125,
-        coverImg: "wedding-photography.png",
-        stats: 5,
-        location: "Online",
-        openSpots: 27,
-    }]
-
-const varNames = Object.keys(dataTest[0])   
-const varNamesL = varNames.length
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 export default function Articletable() {
 
@@ -88,9 +64,10 @@ export default function Articletable() {
                         {Array.from({ length: rowLength }).map((_, index) => (
                             <tr>
                                 {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
-                                <td >
+                                <td as={Link} to="/Add_Article">
                                     {/* TODO: Link Reference */}
-                                    <a as={Link} to="/signup">{Articles[index].ArticleId}</a>
+                                    {/* <Button variant="light" as={Link} to="/Add_Article">Add Article</Button> */}
+                                    <Button variant="light" as={Link} to="/ArticleId">{Articles[index].ArticleId}</Button>
                                 </td>
                                 <td>{Articles[index].Title}</td>
                                 <td>{Articles[index].Section}</td>
