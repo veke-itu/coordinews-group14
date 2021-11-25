@@ -1,6 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import { getUsers, getArticles } from '../DatabaseInteraction/db';
 import { useEffect, useState } from "react";
+import Spinner from 'react-bootstrap/Spinner';
 
 const dataTest = [
     {
@@ -27,50 +28,22 @@ const dataTest = [
 const varNames = Object.keys(dataTest[0])   
 const varNamesL = varNames.length
 
-export default function Test() {
+export default function Articletable() {
 
-    const [Users, setUsers] = useState();
     const [Articles, setArticle] = useState();
-
-    useEffect(() => {
-        getUsers().then((Users) => {
-            console.log(Users)
-            const usersMapped = Users.map(wrapper => { 
-                console.log('Processing user', wrapper.id)
-                const attributes = wrapper.attributes
-                console.log('Processing Attributes', wrapper.attributes)
-
-                const mappedUser = {
-                    id: wrapper.id,
-                    username: wrapper.attributes.username
-                }
-
-                console.log('Processing FullUser', mappedUser)
-
-                return mappedUser
-            })
-
-            console.log(usersMapped)
-            console.log(usersMapped.id)
-            console.log(Object.keys(usersMapped[0]))
-
-            setUsers(usersMapped);
-            // setId();
-            // setUsername();
-        });
-    }, []);
 
     useEffect(() => {
         getArticles().then((Articles) => {
             console.log(Articles)
-            const articlesMapped = Articles.map(wrapperA => { 
-                console.log('Processing user', wrapperA.id)
-                const attributesA = wrapperA.attributes
-                console.log('Processing Attributes', wrapperA.attributes)
-
+            const articlesMapped = Articles.map(wrapper => { 
                 const mappedArticle = {
-                    title: wrapperA.attributes.Title,
-                    journalist: wrapperA.attributes.Journalist
+                    ArticleId: wrapper.id,
+                    Title: wrapper.attributes.Title,
+                    Section: wrapper.attributes.Section,
+                    Journalist: wrapper.attributes.Journalist,
+                    Photographer: wrapper.attributes.Photographer, 
+                    State: wrapper.attributes.State, 
+                    Size: wrapper.attributes.Size,
                 }
 
                 console.log(mappedArticle)
@@ -85,11 +58,19 @@ export default function Test() {
         })
     }, []);
 
-// console.log(Articles)
-// console.log(Articles[0].title)
-// const articlesNames = Object.keys(Articles[0])
-// console.log(articlesNames)
-// const articlesNamesL = articlesNames.length
+    if (!Articles) {
+        return (
+        <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>)
+      }
+
+    const columnTitles = Object.keys(Articles[0])
+    const columnLength = Object.keys(Articles[0]).length
+    const rowLength = Articles.length
+    console.log("ArticleTest", Articles)
+    console.log("Column Test", columnTitles[0])
+    console.log("Rower:", Articles[0].Photographer)
 
     return(
     <div>
@@ -97,19 +78,22 @@ export default function Test() {
     <Table responsive>
                     <thead>
                         <tr>
-                        <th>#</th>
-                        {Array.from({ length: varNamesL }).map((_, index) => (
-                            <th key={index}>{varNames[index]}</th>
+                        {Array.from({ length: columnLength }).map((_, index) => (
+                            <th key={index}>{columnTitles[index]}</th>
                         ))}
                         </tr>
                     </thead>
                     <tbody>
-                        {Array.from({ length: varNamesL }).map((_, index) => (
+                        {Array.from({ length: rowLength }).map((_, index) => (
                             <tr>
-                                <td>{index}</td>
-                                {Array.from({ length: varNamesL }).map((_, index) => (
-                                    <td key={index}>{varNames[index]}</td>
-                                ))}
+                                {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
+                                <td>{Articles[index].ArticleId}</td>
+                                <td>{Articles[index].Title}</td>
+                                <td>{Articles[index].Section}</td>
+                                <td>{Articles[index].Journalist}</td>
+                                <td>{Articles[index].Photographer}</td>
+                                <td>{Articles[index].Size}</td>
+                                <td>{Articles[index].State}</td>
                             </tr>               
                         ))}
                         

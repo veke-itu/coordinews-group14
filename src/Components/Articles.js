@@ -5,14 +5,12 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
-import Test from './Test1';
-import { useEffect, useState } from "react";
+import Articletable from './ArticleTable';
 import "../App.css";
 
 
 
 export default function Articles() {
-    
 
     return(
         <>
@@ -51,50 +49,7 @@ export default function Articles() {
                 <br></br>
                 <br></br>
                 <br></br>
-                
-                <Table responsive>
-                    <thead>
-                        <tr>
-                        <th>#</th>
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <th key={index}>Table heading</th>
-                        ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>1</td>
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        </tr>
-                        <tr>
-                        <td>4</td>
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        </tr>
-                    </tbody>
-                </Table>
-
-                <br></br>
-                <br></br>
-                <br></br>
-                <Table />
-                <h1>Hallo</h1>
-                <Test/>
+                <Articletable/>
             </div>
         </>
     )

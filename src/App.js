@@ -8,7 +8,6 @@ import Ideas from "./Components/Ideas";
 import Articles from "./Components/Articles";
 import Staff from "./Components/Staff";
 import LandingPage from "./Components/LandingPage";
-import { Test } from "./Components/Test1";
 
 function App() {
   return (
