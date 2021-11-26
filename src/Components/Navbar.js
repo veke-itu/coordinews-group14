@@ -2,6 +2,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import Parse from "parse";
 import { useNavigate, Link } from "react-router-dom";
 import Image from 'react-bootstrap/Image';
+import NewsLogo from "../Images/Logo_TID.svg";
 //import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import "../App.css"
 
@@ -22,10 +23,10 @@ export function NavigationBar() {
           
             <Navbar.Brand  as={Link} to="/">
               <img
-                src="./Images/news-logo.png"
+                src={NewsLogo}
                 width="30"
                 height="30"
-                alt="React Bootstrap logo"
+                alt="test"
               />
             </Navbar.Brand>
 
