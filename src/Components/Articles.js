@@ -39,8 +39,8 @@ export default function Articles() {
                         <Dropdown.Item href="#/action-3">Local</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Sport</Dropdown.Item>
                     </DropdownButton>
-
-                    <DropdownButton id="dropdown-basic-button" title="Author">
+                    
+                    <DropdownButton id="dropdown-basic-button" title="Jornalist">
                         <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
@@ -50,10 +50,20 @@ export default function Articles() {
                         <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
                     </DropdownButton>
 
+                    <DropdownButton id="dropdown-basic-button" title="Photographer">
+                        <Dropdown.Item href="#/action-1">AK</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">EJ</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">LP</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">LJ</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">RM</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">MH</Dropdown.Item>
+                    </DropdownButton>
+
                 </ButtonGroup>
                 <ButtonGroup aria-label="Basic example" className="button--adjust">
                     <Button variant="secondary">Current</Button>
-                    <Button variant="secondary">Archive</Button>
+                    <Button variant="secondary">Archived</Button>
                 </ButtonGroup>
                 
                 <br></br>
