@@ -32,15 +32,22 @@ export default function Articles() {
                     </Form>
                     
                     <DropdownButton id="dropdown-basic-button" title="Section" className="filter--rough">
-                        <Dropdown.Item href="#/action-1">Section1</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Section2</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Section3</Dropdown.Item>
+                        <Dropdown.Item href="#/action-1">News</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Politics</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Business</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">World</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Local</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Sport</Dropdown.Item>
                     </DropdownButton>
 
                     <DropdownButton id="dropdown-basic-button" title="Author">
-                        <Dropdown.Item href="#/action-1">Author1</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Author2</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Author3</Dropdown.Item>
+                        <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">LJ</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">RS</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">PW</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
                     </DropdownButton>
 
                 </ButtonGroup>
