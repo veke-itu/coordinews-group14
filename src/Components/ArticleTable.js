@@ -48,36 +48,34 @@ export default function Articletable() {
   console.log("Rower:", Articles[0].Photographer);
 
   return (
-    <div>
-      <Table responsive>
-        <thead>
-          <tr>
-            {Array.from({ length: columnLength }).map((_, index) => (
-              <th key={index}>{columnTitles[index]}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {Array.from({ length: rowLength }).map((_, index) => (
-            <tr>
-              {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
-              <td as={Link} to="/Add_Article">
-                {/* TODO: Link Reference */}
-                {/* <Button variant="light" as={Link} to="/Add_Article">Add Article</Button> */}
-                <Button variant="light" as={Link} to="/ArticleId">
-                  {Articles[index].ArticleId}
-                </Button>
-              </td>
-              <td>{Articles[index].Title}</td>
-              <td>{Articles[index].Section}</td>
-              <td>{Articles[index].Journalist}</td>
-              <td>{Articles[index].Photographer}</td>
-              <td>{Articles[index].Size}</td>
-              <td>{Articles[index].State}</td>
-            </tr>
+    <Table>
+      <thead>
+        <tr>
+          {Array.from({ length: columnLength }).map((_, index) => (
+            <th key={index}>{columnTitles[index]}</th>
           ))}
-        </tbody>
-      </Table>
-    </div>
+        </tr>
+      </thead>
+      <tbody>
+        {Array.from({ length: rowLength }).map((_, index) => (
+          <tr>
+            {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
+            <td as={Link} to="/Add_Article">
+              {/* TODO: Link Reference */}
+              {/* <Button variant="light" as={Link} to="/Add_Article">Add Article</Button> */}
+              <Button variant="light" as={Link} to="/ArticleId">
+                {Articles[index].ArticleId}
+              </Button>
+            </td>
+            <td>{Articles[index].Title}</td>
+            <td>{Articles[index].Section}</td>
+            <td>{Articles[index].Journalist}</td>
+            <td>{Articles[index].Photographer}</td>
+            <td>{Articles[index].Size}</td>
+            <td>{Articles[index].State}</td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
   );
 }
