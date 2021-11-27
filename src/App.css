@@ -3,7 +3,7 @@
   font-style: normal;
 }
 
-.general--header {
+/* .general--header {
   display: flex;
   text-align: center;
   height: 157px;
@@ -12,16 +12,14 @@
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
-.navBar--general {
-  position: absolute;
-  width: 1152px;
-  height: 128px;
-  left: 0px;
-  top: 0px;
-
-  background: #8d519a;
+.flex--adjustment {
+  width: 1000px;
+  left: 196px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
 }
 
 .overview--header {
@@ -39,39 +37,44 @@
   color: #786e7a;
 }
 
-.status-buttons {
-  position: absolute;
-  width: 180px;
-  height: 24.05px;
-  left: 916px;
-  top: 181px;
-  background: #f5f4f5;
-  border: 2px solid #f5f4f5;
-  box-sizing: border-box;
-  border-radius: 10px;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 100%;
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #5a535c;
-}
-
 .background--box {
   position: absolute;
   width: 1040px;
-  height: 430.91px;
+  height: 464px;
   left: 56px;
   top: 226px;
 
   background: #c4bfc5;
   border-radius: 10px;
+}
+
+.splitScreenLanding {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  height: 464px;
+  width: 1040px;
+  left: 56px;
+  top: 226px;
+  justify-content: space-around;
+  gap: 50px;
+  background: #c4bfc5;
+  border-radius: 10px;
+}
+
+.leftPaneLanding {
+  width: 40%;
+  padding: 10px;
+}
+
+.rightPaneLanding {
+  width: 60%;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 10px;
+  margin: auto;
+  margin-right: 30px;
+  background: #f5f4f5;
 }
 
 .button {
@@ -121,19 +124,16 @@ tbody {
   width: 4px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
   border-radius: 10px;
