@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { uploadArticle } from "../DatabaseInteraction/db";
+import "../App.css";
 
 export default function Upload() {
   const [articles, setArticles] = useState([]);
@@ -33,8 +34,8 @@ export default function Upload() {
   return (
     <div className="background--box">
       <form>
-        <ul>
-          <li>
+        <ul className="form--list">
+          <li className="form--row">
             <label>Title</label>
             <input
               type="text"
@@ -44,7 +45,7 @@ export default function Upload() {
               onChange={handleChange}
             />
           </li>
-          <li>
+          <li className="form--row">
             <label>Comment</label>
             <input
               type="text"
@@ -54,19 +55,7 @@ export default function Upload() {
               onChange={handleChange}
             />
           </li>
-
-          <li>
-            <label>Size</label>
-            <input
-              type="text"
-              placeholder="Size"
-              name="size"
-              value={newArticle.title}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li>
+          <li className="form--row">
             <label>Section</label>
             <input
               type="text"
@@ -77,7 +66,18 @@ export default function Upload() {
             />
           </li>
 
-          <li>
+          <li className="form--row">
+            <label>Size</label>
+            <input
+              type="text"
+              placeholder="Size"
+              name="size"
+              value={newArticle.title}
+              onChange={handleChange}
+            />
+          </li>
+
+          <li className="form--row">
             <label>State</label>
             <input
               type="text"
@@ -88,7 +88,7 @@ export default function Upload() {
             />
           </li>
 
-          <li>
+          <li className="form--row">
             <label>Journalist</label>
             <input
               type="text"
@@ -99,8 +99,8 @@ export default function Upload() {
             />
           </li>
 
-          <li>
-            <label>Photgrapher</label>
+          <li className="form--row">
+            <label>Photographer</label>
             <input
               type="text"
               placeholder="Photographer"
@@ -110,7 +110,9 @@ export default function Upload() {
             />
           </li>
 
-          <input type="submit" />
+          <button type="submit" onClick={handleUpload} className="form--button">
+            Add Article
+          </button>
         </ul>
       </form>
     </div>

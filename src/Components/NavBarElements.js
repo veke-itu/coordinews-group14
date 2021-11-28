@@ -79,7 +79,7 @@ export const ContainerLogOut = styled.nav`
 `;
 
 export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
+  border-radius: 10px;
   background: #f5f4f5;
   padding: 10px 22px;
   color: #8d519a;
