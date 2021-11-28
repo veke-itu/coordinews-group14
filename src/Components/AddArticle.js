@@ -32,6 +32,7 @@ export default function Upload() {
   }
 
   return (
+    //TODO: take component out and add information via prop
     <div className="background--box">
       <form>
         <ul className="form--list">
@@ -51,7 +52,7 @@ export default function Upload() {
               type="text"
               placeholder="Comment"
               name="comment"
-              value={newArticle.title}
+              value={newArticle.comment}
               onChange={handleChange}
             />
           </li>
@@ -72,7 +73,7 @@ export default function Upload() {
               type="text"
               placeholder="Size"
               name="size"
-              value={newArticle.title}
+              value={newArticle.size}
               onChange={handleChange}
             />
           </li>
@@ -83,7 +84,7 @@ export default function Upload() {
               type="text"
               placeholder="State"
               name="state"
-              value={newArticle.section}
+              value={newArticle.state}
               onChange={handleChange}
             />
           </li>
@@ -111,7 +112,7 @@ export default function Upload() {
           </li>
 
           <button type="submit" onClick={handleUpload} className="form--button">
-            Add Article
+            Submit Article
           </button>
         </ul>
       </form>

@@ -54,9 +54,11 @@ export default function Articles() {
 
         <br></br>
         <Articletable />
-        <Button variant="light" as={Link} to="/Add_Article">
-          Add Article
-        </Button>
+        <a href="/#/Add_Article">
+          <button type="submit" className="form--button">
+            Add Article
+          </button>
+        </a>
       </div>
     </>
   );

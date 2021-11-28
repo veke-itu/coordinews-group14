@@ -43,9 +43,6 @@ export default function Articletable() {
   const columnTitles = Object.keys(Articles[0]);
   const columnLength = Object.keys(Articles[0]).length;
   const rowLength = Articles.length;
-  console.log("ArticleTest", Articles);
-  console.log("Column Test", columnTitles[0]);
-  console.log("Rower:", Articles[0].Photographer);
 
   return (
     <Table>

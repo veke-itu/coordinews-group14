@@ -40,9 +40,9 @@
 
 .form--button {
   border-radius: 10px;
-  background: #f5f4f5;
+  background: #4a1256;
   padding: 10px 22px;
-  color: #8d519a;
+  color: #f5f4f5;
   outline: none;
   border: none;
   cursor: pointer;
@@ -50,6 +50,13 @@
   text-decoration: none;
   margin-left: 24px;
   margin-top: 12px;
+}
+
+.form--button:hover {
+  transition: all 0.2s ease-in-out;
+  background: #4a1256;
+  background: #f5f4f5;
+  color: #8d519a;
 }
 
 .actionComponents {
@@ -94,15 +101,11 @@
 .splitScreenLanding {
   display: flex;
   flex-direction: row;
-  position: absolute;
-  height: 464px;
-  width: 1040px;
-  left: 56px;
-  top: 226px;
   justify-content: space-around;
   gap: 50px;
-  background: #c4bfc5;
-  border-radius: 10px;
+
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .leftPaneLanding {
@@ -118,6 +121,14 @@
   margin: auto;
   margin-right: 30px;
   background: #f5f4f5;
+}
+
+#second {
+  width: 75%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 12.5%;
 }
 
 .button {
@@ -158,9 +169,9 @@ tbody {
 }
 
 tbody {
-  height: 250px; /* Just for the demo          */
-  overflow-y: auto; /* Trigger vertical scroll    */
-  overflow-x: hidden; /* Hide the horizontal scroll */
+  height: 274px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

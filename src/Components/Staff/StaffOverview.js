@@ -1,3 +1,3 @@
 export default function StaffOverview() {
-  <p>Hallo</p>;
+  <h1>Hallo</h1>;
 }

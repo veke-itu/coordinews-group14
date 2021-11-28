@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
 import Parse from "parse";
 import { useNavigate } from "react-router";
 
@@ -20,37 +19,39 @@ export default function Login() {
   }
 
   return (
-    <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-          />
-        </Form.Group>
+    <div className="background--box">
+      <div id="second">
+        <form>
+          <ul className="form--list">
+            <li className="form--row">
+              <label>Username</label>
+              <input
+                type="text"
+                placeholder="Enter username"
+                name="username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </li>
+            <li className="form--row">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="Enter password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </li>
+          </ul>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Button onClick={handleLoginAttempt} variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </>
+          <button
+            onClick={handleLoginAttempt}
+            className="form--button"
+            type="submit"
+          >
+            Log In
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
