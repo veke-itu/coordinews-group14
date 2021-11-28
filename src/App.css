@@ -15,11 +15,41 @@
 } */
 
 .flex--adjustment {
-  width: 1000px;
-  left: 196px;
+  width: 1040px;
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* .navBar {
+  margin-left: 80px;
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+}
+
+.navBar--General {
+  font-size: 24px;
+  width: 1040px;
+  display: flex;
+  flex-direction: row;
+}
+
+.navBar--LoggedIn {
+  display: flex;
+  flex-direction: row;
+} */
+
+.actionComponents {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+}
+
+.signOut {
+  margin-left: 120px;
 }
 
 .overview--header {
@@ -38,10 +68,12 @@
 }
 
 .background--box {
-  position: absolute;
   width: 1040px;
   height: 464px;
-  left: 56px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 48px;
+  margin-bottom: 48px;
   top: 226px;
 
   background: #c4bfc5;

@@ -10,10 +10,11 @@ import Staff from "./Components/Staff";
 import LandingPage from "./Components/LandingPage";
 import AddArticle from "./Components/AddArticle";
 import ArticleId from "./Components/ArticleId";
+import improvedNavbar from "./Components/ImprovedNavBar";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <HashRouter basename="/">
         <NavigationBar />
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="articles" element={<Articles />} />
           <Route path="staff" element={<Staff />} />
           <Route path="Add_Article" element={<AddArticle />} />
+          <Route path="ArticleId" element={<ArticleId />} />
           <Route path="ArticleId" element={<ArticleId />} />
           <Route path="/" element={<LandingPage />} />
         </Routes>
