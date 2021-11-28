@@ -1,8 +1,27 @@
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import "../App.css";
+import StaffOverview from "./Staff/StaffOverview";
+import StaffTable from "./Staff/StaffTable";
+import JobTable from "./Staff/JobTable";
+
 export default function Staff() {
-    return(
-        <div>
-            <h1>Here is an overview of the current staff</h1>
-            <h3>Click to find out more!</h3>
-        </div>
-    )
+  return (
+    <>
+      <div>
+        <p className="overview--header">Staff Overview and Un-allocated Jobs</p>
+      </div>
+
+      <div className="background--box">
+        <ButtonGroup aria-label="Basic example" className="button--adjust">
+          <Button variant="secondary">Current</Button>
+          <Button variant="secondary">Archive</Button>
+        </ButtonGroup>
+
+        <StaffOverview />
+        <StaffTable />
+        <JobTable />
+      </div>
+    </>
+  );
 }

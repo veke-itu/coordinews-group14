@@ -1,10 +1,9 @@
 // import { Navbar, Container, Nav } from "react-bootstrap";
 import Parse from "parse";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NewsLogo from "../Images/Logo_TID.svg";
-// import "../App.css";
 
-import { Nav } from "./NavBarElements";
+import { ContainerLogOut, Nav, NavBtnLink2 } from "./NavBarElements";
 import { NavLink } from "./NavBarElements";
 import { Bars } from "./NavBarElements";
 import { NavMenu } from "./NavBarElements";
@@ -23,11 +22,47 @@ export function NavigationBar() {
 
   return (
     <>
-      <Nav>
+      <Nav activeKey={window.location.pathname}>
         <NavLink to="/">
           <img src={NewsLogo} alt="logo" width="100" height="auto" />
         </NavLink>
         <Bars />
+
+        {!Parse.User.current() && (
+          <ContainerLogOut>
+            <NavBtn>
+              <NavBtnLink to="/signup">Sign Up</NavBtnLink>
+            </NavBtn>
+            <NavBtn>
+              <NavBtnLink to="/login">Log In</NavBtnLink>
+            </NavBtn>
+          </ContainerLogOut>
+        )}
+
+        {Parse.User.current() && (
+          <>
+            <NavMenu>
+              <NavLink to="/ideas" activeStyle>
+                Ideas
+              </NavLink>
+              <NavLink to="/articles" activeStyle>
+                Articles
+              </NavLink>
+              <NavLink to="/staff" activeStyle>
+                Staff
+              </NavLink>
+            </NavMenu>
+            <NavBtn>
+              <NavBtnLink onClick={handleSignOut} to="/">
+                Sign Out
+              </NavBtnLink>
+            </NavBtn>
+          </>
+        )}
+      </Nav>
+    </>
+
+    /*{ <div>
         <NavMenu>
           <NavLink to="/ideas" activeStyle>
             Ideas
@@ -42,32 +77,28 @@ export function NavigationBar() {
         <NavBtn>
           <NavBtnLink to="/signin">Sign Out</NavBtnLink>
         </NavBtn>
-      </Nav>
-    </>
-    // <div className="navBar--General">
-    //   <Navbar>
-    //     <Container>
-    //       <Navbar.Brand as={Link} to="/" className="navBar">
-    //         <img
-    //           src={NewsLogo}
-    //           width="100"
-    //           height="auto"
-    //           alt="Coordinews-Logo"
-    //         />
-    //       </Navbar.Brand>
+        </div> }*/
 
-    //       <Navbar.Toggle />
-    //       <Navbar.Collapse>
-    //         <Nav activeKey={window.location.pathname}>
-    //           {!Parse.User.current() && (
-    //             <div>
-    //               <Nav.Link as={Link} to="/signup">
-    //                 Sign Up
-    //               </Nav.Link>
-    //               <Nav.Link as={Link} to="/login">
-    //                 LogIn
-    //               </Nav.Link>
-    //             </div>
+    //     <Navbar.Toggle />
+    //     <Navbar.Collapse>
+    //       <Nav activeKey={window.location.pathname}>
+    //         {!Parse.User.current() && (
+    //           <div>
+    //   <NavMenu>
+    //   <NavLink to="/ideas" activeStyle>
+    //     Ideas
+    //   </NavLink>
+    //   <NavLink to="/articles" activeStyle>
+    //     Articles
+    //   </NavLink>
+    //   <NavLink to="/staff" activeStyle>
+    //     Staff
+    //   </NavLink>
+    // </NavMenu>
+    // <NavBtn>
+    //   <NavBtnLink to="/signin">Sign Out</NavBtnLink>
+    // </NavBtn>
+    // </div>
     //           )}
 
     //           {Parse.User.current() && (

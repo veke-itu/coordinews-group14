@@ -65,12 +65,17 @@ export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
   margin-right: 24px;
-  /* Third Nav */
-  /* justify-content: flex-end;
-  width: 100vw; */
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+
+export const ContainerLogOut = styled.nav`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  justify-content: flex-end;
+  width: 100vw;
 `;
 
 export const NavBtnLink = styled(Link)`
@@ -83,11 +88,28 @@ export const NavBtnLink = styled(Link)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  /* Second Nav */
   margin-left: 24px;
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #d7badd;
+    background: #4a1256;
     color: #f5f4f5;
+  }
+`;
+
+export const NavBtnLink2 = styled(Link)`
+  border-radius: 4px;
+  background: #4a1256;
+  padding: 10px 22px;
+  color: #f5f4f5;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  margin-left: 24px;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #f5f4f5;
+    color: #8d519a;
   }
 `;

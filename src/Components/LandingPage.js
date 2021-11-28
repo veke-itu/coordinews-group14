@@ -2,7 +2,6 @@ import Parse from "parse";
 import { useNavigate } from "react-router-dom";
 import LandingPageLogo from "../Images/Coordinews.png";
 import "../App.css";
-import { Container } from "react-bootstrap";
 
 export default function LandingPage() {
   const navigate = useNavigate();
