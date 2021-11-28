@@ -11,10 +11,8 @@ import "../App.css";
 export default function Articles() {
   return (
     <>
-      <div>
-        <p className="overview--header">Article Overview</p>
-      </div>
       <div className="background--box">
+        <p className="overview--header">Article Overview</p>
         <ButtonGroup>
           <Form className="d-flex">
             <FormControl

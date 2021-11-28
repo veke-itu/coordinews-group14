@@ -3,17 +3,6 @@
   font-style: normal;
 }
 
-/* .general--header {
-  display: flex;
-  text-align: center;
-  height: 157px;
-  background: #8d519a;
-  color: white;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-} */
-
 .flex--adjustment {
   width: 1040px;
   display: flex;
@@ -22,25 +11,18 @@
   margin-left: auto;
 }
 
-/* .navBar {
-  margin-left: 80px;
-  margin-right: 80px;
-  display: flex;
-  flex-direction: row;
-  font-size: 24px;
+ul {
+  list-style-type: none;
 }
 
-.navBar--General {
-  font-size: 24px;
-  width: 1040px;
+form {
   display: flex;
   flex-direction: row;
 }
-
-.navBar--LoggedIn {
-  display: flex;
-  flex-direction: row;
-} */
+input {
+  border-radius: 10px;
+  padding: 0.5em 0.75em;
+}
 
 .actionComponents {
   display: flex;
@@ -54,10 +36,11 @@
 
 .overview--header {
   position: absolute;
-  left: 56px;
-  height: 350px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin-left: 24px;
+  top: 134px;
+  height: 16px;
+  padding-top: 20px;
+  padding-bottom: 12px;
   font-weight: bold;
   font-size: 18px;
   line-height: 100%;
@@ -74,7 +57,7 @@
   margin-left: auto;
   margin-top: 48px;
   margin-bottom: 48px;
-  top: 226px;
+  top: 224px;
 
   background: #c4bfc5;
   border-radius: 10px;
