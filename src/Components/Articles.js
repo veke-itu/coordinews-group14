@@ -28,7 +28,7 @@ export default function Articles() {
             id="dropdown-basic-button"
             title="Section"
             className="filter--rough"
-            variant="outline-success"
+            variant="outline-secondary"
           >
             <Dropdown.Item href="#/action-1">News</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Politics</Dropdown.Item>
@@ -38,7 +38,7 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">Sport</Dropdown.Item>
           </DropdownButton>
 
-          <DropdownButton id="dropdown-basic-button" title="Author" variant="outline-success">
+          <DropdownButton id="dropdown-basic-button" title="Author" variant="outline-secondary" >
             <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
@@ -48,7 +48,7 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
           </DropdownButton>
 
-          <DropdownButton id="dropdown-basic-button" title="Photographer" variant="outline-success">
+          <DropdownButton id="dropdown-basic-button" title="Photographer" variant="outline-secondary">
             <Dropdown.Item href="#/action-1">AK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">EJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LP</Dropdown.Item>
