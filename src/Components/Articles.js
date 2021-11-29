@@ -8,6 +8,7 @@ import Articletable from "./ArticleTable";
 import { Link } from "react-router-dom";
 import "../App.css";
 
+
 export default function Articles() {
   return (
     <>
@@ -21,13 +22,13 @@ export default function Articles() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Magnifying glass</Button>
           </Form>
 
           <DropdownButton
             id="dropdown-basic-button"
             title="Section"
             className="filter--rough"
+            variant="outline-success"
           >
             <Dropdown.Item href="#/action-1">News</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Politics</Dropdown.Item>
@@ -37,7 +38,7 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">Sport</Dropdown.Item>
           </DropdownButton>
 
-          <DropdownButton id="dropdown-basic-button" title="Author">
+          <DropdownButton id="dropdown-basic-button" title="Author" variant="outline-success">
             <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
@@ -47,7 +48,7 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
           </DropdownButton>
 
-          <DropdownButton id="dropdown-basic-button" title="Photographer">
+          <DropdownButton id="dropdown-basic-button" title="Photographer" variant="outline-success">
             <Dropdown.Item href="#/action-1">AK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">EJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LP</Dropdown.Item>
