@@ -46,6 +46,16 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">PW</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
           </DropdownButton>
+
+          <DropdownButton id="dropdown-basic-button" title="Photographer">
+            <Dropdown.Item href="#/action-1">AK</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">EJ</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LP</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LJ</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">RM</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">MH</Dropdown.Item>
+        </DropdownButton>
         </ButtonGroup>
         <ButtonGroup aria-label="Basic example" className="button--adjust">
           <Button variant="secondary">Current</Button>
