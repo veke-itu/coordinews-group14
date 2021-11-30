@@ -1,8 +1,15 @@
+import "../App.css";
+import StaffOverview from "./Staff/StaffOverview";
+import StaffTable from "./Staff/StaffTable";
+import JobTable from "./Staff/JobTable";
+
 export default function Staff() {
-    return(
-        <div>
-            <h1>Here is an overview of the current staff</h1>
-            <h3>Click to find out more!</h3>
-        </div>
-    )
+  return (
+    <div className="background--box">
+      <h1>Hallo</h1>
+
+      {/*<StaffTable />
+      <JobTable /> */}
+    </div>
+  );
 }

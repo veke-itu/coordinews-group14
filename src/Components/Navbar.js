@@ -1,8 +1,14 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+// import { Navbar, Container, Nav } from "react-bootstrap";
 import Parse from "parse";
-import { useNavigate, Link } from "react-router-dom";
-//import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import "../App.css"
+import { useNavigate } from "react-router-dom";
+import NewsLogo from "../Images/Logo_TID.svg";
+
+import { ContainerLogOut, Nav } from "./NavBarElements";
+import { NavLink } from "./NavBarElements";
+import { Bars } from "./NavBarElements";
+import { NavMenu } from "./NavBarElements";
+import { NavBtn } from "./NavBarElements";
+import { NavBtnLink } from "./NavBarElements";
 
 export function NavigationBar() {
   const navigate = useNavigate();
@@ -15,54 +21,45 @@ export function NavigationBar() {
   }
 
   return (
-      <div className="navBar--general">
-        <Navbar expand="sm">
-          <Container>
-          
-            <Navbar.Brand  as={Link} to="/">
-              <img
-                src="./Images/news-logo.png"
-                width="30"
-                height="30"
-                alt="React Bootstrap logo"
-              />
-            </Navbar.Brand>
+    <>
+      <Nav activeKey={window.location.pathname}>
+        <NavLink to="/">
+          <img src={NewsLogo} alt="logo" width="100" height="auto" />
+        </NavLink>
+        <Bars />
 
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto" activeKey={window.location.pathname}>
-                  {!Parse.User.current() && (
-                    <>
-                      <Nav.Link as={Link} to="/signup">
-                        Sign Up
-                      </Nav.Link>
-                      <Nav.Link as={Link} to="/login">
-                        LogIn
-                      </Nav.Link>
-                    </>
-                  )}
+        {!Parse.User.current() && (
+          <ContainerLogOut>
+            <NavBtn>
+              <NavBtnLink to="/signup">Sign Up</NavBtnLink>
+            </NavBtn>
+            <NavBtn>
+              <NavBtnLink to="/login">Log In</NavBtnLink>
+            </NavBtn>
+          </ContainerLogOut>
+        )}
 
-                  {Parse.User.current() && (
-                    <>
-                      <Nav.Link as={Link} to="/ideas">
-                        Ideas
-                      </Nav.Link>
-                      <Nav.Link as={Link} to="/articles">
-                        Articles
-                      </Nav.Link>
-                      <Nav.Link as={Link} to="/staff">
-                        Staff
-                      </Nav.Link>
-
-                      <Nav.Link onClick={handleSignOut} as={Link} to="/">
-                        Sign Out
-                      </Nav.Link>
-                    </>
-                  )}
-                </Nav>
-              </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </div>
+        {Parse.User.current() && (
+          <>
+            <NavMenu>
+              <NavLink to="/ideas" activeStyle>
+                Ideas
+              </NavLink>
+              <NavLink to="/articles" activeStyle>
+                Articles
+              </NavLink>
+              <NavLink to="/staff" activeStyle>
+                Staff
+              </NavLink>
+            </NavMenu>
+            <NavBtn>
+              <NavBtnLink onClick={handleSignOut} to="/">
+                Sign Out
+              </NavBtnLink>
+            </NavBtn>
+          </>
+        )}
+      </Nav>
+    </>
   );
 }

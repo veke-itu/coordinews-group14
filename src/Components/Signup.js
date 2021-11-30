@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
 import Parse from "parse";
 import { useNavigate } from "react-router-dom";
 
@@ -35,42 +34,45 @@ export default function SignUp() {
   }
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <br />
-      <br />
-      <br />
+    <div className="background--box">
+      <div id="second">
+        <form>
+          <ul Username="form--list">
+            <li className="form--row">
+              <label>Username</label>
+              <input
+                onChange={usernameChange}
+                type="text"
+                placeholder="Enter username"
+              />
+            </li>
+            <li className="form--row">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={passwordChange}
+              />
+            </li>
+            <li className="form--row">
+              <label>Email</label>
+              <input
+                onChange={emailChange}
+                type="email"
+                placeholder="Enter email"
+              />
+            </li>
+          </ul>
 
-      <Form.Group className="mb-3" controlId="formBasicUsrname">
-        <Form.Label>Username</Form.Label>
-        <Form.Control
-          onChange={usernameChange}
-          type="text"
-          placeholder="Enter username"
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          onChange={passwordChange}
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          onChange={emailChange}
-          type="email"
-          placeholder="Enter email"
-        />
-      </Form.Group>
-
-      <Button variabt="primary" onClick={createAccount}>
-        Create Account
-      </Button>
-    </>
+          <button
+            onClick={createAccount}
+            className="form--button"
+            type="submit"
+          >
+            log in
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
