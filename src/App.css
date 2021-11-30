@@ -93,3 +93,43 @@
   box-sizing: border-box;
   border-radius: 10px;
 }
+
+.changes-box {
+  position: absolute;
+  width: 640px;
+  height: 334px;
+  left: 656px;
+  top: 44px;
+
+  background: rgba(245, 244, 245, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+
+.changes-close {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  left: 1954px;
+  top: 60px;
+}
+
+.changes-text {
+  position: absolute;
+  width: 316px;
+  height: 18px;
+  left: 818px;
+  top: 144px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 18px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #5A535C;
+  }
