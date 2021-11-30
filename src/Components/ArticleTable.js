@@ -20,7 +20,7 @@ export default function Articletable() {
           Photographer: wrapper.attributes.Photographer,
           State: wrapper.attributes.State,
           Size: wrapper.attributes.Size,
-          Date: wrapper.attributes.Date,
+          Deadline: wrapper.attributes.Date,
         };
 
         console.log(mappedArticle);
