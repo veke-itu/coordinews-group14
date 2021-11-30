@@ -61,6 +61,10 @@
   color: #8d519a;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .form--button--long {
   border-radius: 10px;
   width: 220px;

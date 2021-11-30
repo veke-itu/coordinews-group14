@@ -22,6 +22,7 @@ export default function Login() {
     <div className="background--box">
       <div id="second">
         <form>
+          <ul>Please log yourself in {"\u270D"}</ul>
           <ul className="form--list">
             <li className="form--row">
               <label>Username</label>
