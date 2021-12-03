@@ -18,14 +18,14 @@ async function getPhotographer() {
   const Photographer = Parse.Object.extend("Photographer");
   const queryPhotographer = new Parse.Query(Photographer);
 
-  return await queryPhotographerfindAll();
+  return await queryPhotographer.findAll();
 }
 
 async function getJournalist() {
   const Journalist = Parse.Object.extend("Journalist");
   const queryJournalist = new Parse.Query(Journalist);
 
-  return await queryJournalistfindAll();
+  return await queryJournalist.findAll();
 }
 
 
