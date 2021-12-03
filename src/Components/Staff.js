@@ -24,7 +24,7 @@ export default function Staff() {
             />
           </Form>
   
-        <DropdownButton id="dropdown-basic-button" title="Journalist" variant="outline-secondary" >
+        <DropdownButton id="dropdown-basic-button" title="Journalist" className="filter--rough" variant="outline-secondary" >
             <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
@@ -35,7 +35,7 @@ export default function Staff() {
           </DropdownButton>
 
 
-          <DropdownButton id="dropdown-basic-button" title="Photographer" variant="outline-secondary">
+          <DropdownButton id="dropdown-basic-button" title="Photographer" className="filter--rough" variant="outline-secondary">
             <Dropdown.Item href="#/action-1">AK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">EJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LP</Dropdown.Item>
