@@ -15,13 +15,11 @@ export default function LandingPage() {
       {!Parse.User.current() && (
         <div className="splitScreenLanding">
           <img
+          /*We can't find this pic in the folder*/
             src={LandingPageLogo}
-            width="auto"
-            height="auto"
             alt="Coordinews-Logo"
             className="leftPaneLanding"
           />
-
           <div className="rightPaneLanding">
             <h3>
               Cooperate like never before - concentrate on the things that
@@ -37,11 +35,10 @@ export default function LandingPage() {
           </div>
         </div>
       )}
-      {/* TODO: Make more composable */}
+      {/* TODO: Make more composable, Get user from database*/}
       {Parse.User.current() && (
         <div className="landing--logged">
-          <p>Hey User XXX, what do you want to work on today?</p>
-
+          <p>Hey User XXX, what do you want to work on today?</p> 
           <a href="/#/ideas">
             <button type="submit" className="form--button--long">
               Ideas

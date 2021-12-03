@@ -1,13 +1,17 @@
-import React from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calender.css";
 
-export function Calender() {
-    const onChange = (date) => {
-        console.log(date.toString());
-    };
+const ReactCalendar = () => {
+    const [date, setDate] = useState(new Date());
 
-    return(
-        <DatePicker onChange={onChange} />
+    const onChange = date => {
+        setDate(date)
+    }
+
+    return (
+        <div>
+            <Calendar onChange={onChange} value={date} />
+        </div>
     )
 }

@@ -183,7 +183,7 @@
 }
 
 .button--adjust {
-  left: 330px;
+  left: 300px;
 }
 
 #search--button {
@@ -198,7 +198,7 @@
   border-radius: 10px;
 }
 
-.changes-box {
+.changes--box {
   position: absolute;
   width: 640px;
   height: 334px;
@@ -241,9 +241,12 @@ table {
   width: 100%; /* Optional */
 }
 
-tbody td,
+tbody td {
+  width: 20%;
+}
+
 thead th {
-  width: 20%; /* Optional */
+  width: 15%; /* Optional */
 }
 
 thead,
@@ -274,4 +277,14 @@ tbody {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
   border-radius: 10px;
+}
+
+.me-2 {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.filter--rough {
+  margin-right: 5px;
+  margin-top: 5px;
 }
