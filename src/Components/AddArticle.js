@@ -111,6 +111,17 @@ export default function Upload() {
             />
           </li>
 
+          <li className="form--row">
+            <label>Deadline</label>
+            <input
+              type="date"
+              placeholder="Add Deadline"
+              name="deadline"
+              value={newArticle.deadline}
+              onChange={handleChange}
+            />
+          </li>
+
           <button type="submit" onClick={handleUpload} className="form--button">
             Submit Article
           </button>

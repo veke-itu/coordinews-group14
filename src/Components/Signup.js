@@ -37,6 +37,7 @@ export default function SignUp() {
     <div className="background--box">
       <div id="second">
         <form>
+          <ul>Sign up to Coordinews {"\u270D"}</ul>
           <ul Username="form--list">
             <li className="form--row">
               <label>Username</label>
