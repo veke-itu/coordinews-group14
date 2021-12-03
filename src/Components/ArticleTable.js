@@ -22,6 +22,7 @@ export default function Articletable() {
           Size: wrapper.attributes.Size,
           Deadline: wrapper.attributes.Date,
         };
+        /** Add Article is not connected to database anymore */
 
         console.log(mappedArticle);
 
@@ -69,8 +70,9 @@ export default function Articletable() {
             <td>{Articles[index].Section}</td>
             <td>{Articles[index].Journalist}</td>
             <td>{Articles[index].Photographer}</td>
-            <td>{Articles[index].Size}</td>
             <td>{Articles[index].State}</td>
+            <td>{Articles[index].Size}</td>
+            <td>{Articles[index].Date}</td>
           </tr>
         ))}
       </tbody>

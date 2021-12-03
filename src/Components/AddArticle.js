@@ -122,6 +122,8 @@ export default function Upload() {
             />
           </li>
 
+          <br></br>
+
           <button type="submit" onClick={handleUpload} className="form--button">
             Submit Article
           </button>

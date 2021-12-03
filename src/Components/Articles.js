@@ -24,12 +24,7 @@ export default function Articles() {
             />
           </Form>
 
-          <DropdownButton
-            id="dropdown-basic-button"
-            title="Section"
-            className="filter--rough"
-            variant="outline-secondary"
-          >
+          <DropdownButton id="dropdown-basic-button" title="Section" className="filter--rough" variant="outline-secondary" >
             <Dropdown.Item href="#/action-1">News</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Politics</Dropdown.Item>
             <Dropdown.Item href="#/action-3">Business</Dropdown.Item>
@@ -38,7 +33,7 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">Sport</Dropdown.Item>
           </DropdownButton>
 
-          <DropdownButton id="dropdown-basic-button" title="Author" variant="outline-secondary" >
+          <DropdownButton id="dropdown-basic-button" title="Journalist" className="filter--rough" variant="outline-secondary" >
             <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
@@ -48,7 +43,7 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
           </DropdownButton>
 
-          <DropdownButton id="dropdown-basic-button" title="Photographer" variant="outline-secondary">
+          <DropdownButton id="dropdown-basic-button" title="Photographer" className="filter--rough" variant="outline-secondary">
             <Dropdown.Item href="#/action-1">AK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">EJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LP</Dropdown.Item>
@@ -74,3 +69,7 @@ export default function Articles() {
     </>
   );
 }
+
+/* Change dropdown actions - database. Line 28-53 
+  same goes for Current and Archive. Line 57 and 58
+*/
