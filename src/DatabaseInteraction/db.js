@@ -14,6 +14,21 @@ async function getArticles() {
   return await queryArticle.findAll();
 }
 
+async function getPhotographer() {
+  const Photographer = Parse.Object.extend("Photographer");
+  const queryPhotographer = new Parse.Query(Photographer);
+
+  return await queryPhotographerfindAll();
+}
+
+async function getJournalist() {
+  const Journalist = Parse.Object.extend("Journalist");
+  const queryJournalist = new Parse.Query(Journalist);
+
+  return await queryJournalistfindAll();
+}
+
+
 async function uploadArticle(articles) {
   return await Promise.all(
     articles.map((article) => {
@@ -34,4 +49,4 @@ async function uploadArticle(articles) {
   );
 }
 
-export { getUsers, getArticles, uploadArticle };
+export { getUsers, getArticles, getPhotographer, getJournalist, uploadArticle };

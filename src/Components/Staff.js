@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 export default function Staff() {
   return (
@@ -21,7 +23,30 @@ export default function Staff() {
               aria-label="Search"
             />
           </Form>
+  
+        <DropdownButton id="dropdown-basic-button" title="Journalist" variant="outline-secondary" >
+            <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LJ</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">RS</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">PW</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
+          </DropdownButton>
+
+
+          <DropdownButton id="dropdown-basic-button" title="Photographer" variant="outline-secondary">
+            <Dropdown.Item href="#/action-1">AK</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">EJ</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LP</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LJ</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">RM</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">MH</Dropdown.Item>
+        </DropdownButton>
         </ButtonGroup>
+
+    
 
         {/*<StaffTable />
         <JobTable /> */}

@@ -38,7 +38,7 @@ export default function Articles() {
             <Dropdown.Item href="#/action-3">Sport</Dropdown.Item>
           </DropdownButton>
 
-          <DropdownButton id="dropdown-basic-button" title="Author" variant="outline-secondary" >
+          <DropdownButton id="dropdown-basic-button" title="Journalist" variant="outline-secondary" >
             <Dropdown.Item href="#/action-1">PK</Dropdown.Item>
             <Dropdown.Item href="#/action-2">AJ</Dropdown.Item>
             <Dropdown.Item href="#/action-3">LA</Dropdown.Item>
