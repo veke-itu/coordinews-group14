@@ -47,9 +47,11 @@ export default function Articletable() {
   const rowLength = Articles.length;
 
   return (
-    <Table>
+    <table class="table table-hover">
       <thead>
+        <br></br>
         <tr>
+          
           {Array.from({ length: columnLength }).map((_, index) => (
             <th key={index}>{columnTitles[index]}</th>
           ))}
@@ -76,6 +78,6 @@ export default function Articletable() {
           </tr>
         ))}
       </tbody>
-    </Table>
+    </table>
   );
 }
