@@ -56,60 +56,28 @@ export default function Upload() {
               onChange={handleChange}
             />
           </li>
-          <li className="form--row">
-            <label>Section</label>
-            <input
-              type="text"
-              placeholder="Section"
-              name="section"
-              value={newArticle.section}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li className="form--row">
-            <label>Size</label>
-            <input
-              type="text"
-              placeholder="Size"
-              name="size"
-              value={newArticle.size}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li className="form--row">
-            <label>State</label>
-            <input
-              type="text"
-              placeholder="State"
-              name="state"
-              value={newArticle.state}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li className="form--row">
-            <label>Journalist</label>
-            <input
-              type="text"
-              placeholder="Journalist"
-              name="journalist"
-              value={newArticle.journalist}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li className="form--row">
-            <label>Photographer</label>
-            <input
-              type="text"
-              placeholder="Photographer"
-              name="photographer"
-              value={newArticle.photographer}
-              onChange={handleChange}
-            />
-          </li>
+          <form action="/action_page.php">
+            Section <select name="section" id="section" className="dropdown--row">
+              <option value={newArticle.section} onChange={handleChange}>Section</option>
+            </select>
+            <br></br>
+            Size <select name="size" id="size" className="dropdown--row">
+              <option value={newArticle.size} onChange={handleChange}>Size</option>
+            </select>
+            <br></br>
+            State <select name="state" id="state" className="dropdown--row">
+              <option value={newArticle.state} onChange={handleChange}>State</option>
+            </select>
+            <br></br>
+            Journalist <select name="journalist" id="journalist" className="dropdown--row">
+              <option value={newArticle.journalist} onChange={handleChange}>Journalist</option>
+            </select>
+            <br></br>
+            Photographer <select name="photographer" id="photographer" className="dropdown--row">
+              <option value={newArticle.photographer} onChange={handleChange}>Photographer</option>
+            </select>
+            <br></br>
+          </form>
 
           <li className="form--row">
             <label>Deadline</label>
