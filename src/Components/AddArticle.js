@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { uploadArticle } from "../DatabaseInteraction/db";
 import "../App.css";
+import Popup from "./Popup";
 
 export default function Upload() {
   const [articles, setArticles] = useState([]);
@@ -9,6 +10,8 @@ export default function Upload() {
   const [newArticle, setNewArticle] = useState({});
 
   const navigate = useNavigate();
+
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   async function handleUpload(e) {
     e.preventDefault();
@@ -56,28 +59,116 @@ export default function Upload() {
               onChange={handleChange}
             />
           </li>
-          <form action="/action_page.php">
-            Section <select name="section" id="section" className="dropdown--row">
-              <option value={newArticle.section} onChange={handleChange}>Section</option>
+
+          <li className="form--row">
+            <label>Section</label>
+            <select
+              placeholder="Select Section"
+              name="section"
+              value={newArticle.section}
+              onChange={handleChange}
+            >
+              <option>Sports</option>
+            </select>
+          </li>
+
+          <li className="form--row">
+            <label>Size</label>
+            <select
+              placeholder="Select Size"
+              name="size"
+              value={newArticle.size}
+              onChange={handleChange}
+            >
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select>
+          </li>
+
+          <li className="form--row">
+            <label>State</label>
+            <select
+              placeholder="Select State"
+              name="state"
+              value={newArticle.state}
+              onChange={handleChange}
+            >
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+          </li>
+
+          <li className="form--row">
+            <label>Journalist</label>
+            <select
+              placeholder="Select Journalist"
+              name="journalist"
+              value={newArticle.journalist}
+              onChange={handleChange}
+            >
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+          </li>
+
+          <li className="form--row">
+            <label>Photographer</label>
+            <select
+              placeholder="Select Photographer"
+              name="photographer"
+              value={newArticle.photographer}
+              onChange={handleChange}
+            >
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+          </li>
+
+          {/* <form action="/action_page.php">
+            Section{" "}
+            <select name="section" id="section" className="dropdown--row">
+              <option value={newArticle.section} onChange={handleChange}>
+                Section
+              </option>
             </select>
             <br></br>
-            Size <select name="size" id="size" className="dropdown--row">
-              <option value={newArticle.size} onChange={handleChange}>Size</option>
+            Size{" "}
+            <select name="size" id="size" className="dropdown--row">
+              <option value={newArticle.size} onChange={handleChange}>
+                Size
+              </option>
             </select>
             <br></br>
-            State <select name="state" id="state" className="dropdown--row">
-              <option value={newArticle.state} onChange={handleChange}>State</option>
+            State{" "}
+            <select name="state" id="state" className="dropdown--row">
+              <option value={newArticle.state} onChange={handleChange}>
+                State
+              </option>
             </select>
             <br></br>
-            Journalist <select name="journalist" id="journalist" className="dropdown--row">
-              <option value={newArticle.journalist} onChange={handleChange}>Journalist</option>
+            Journalist{" "}
+            <select name="journalist" id="journalist" className="dropdown--row">
+              <option value={newArticle.journalist} onChange={handleChange}>
+                Journalist
+              </option>
             </select>
             <br></br>
-            Photographer <select name="photographer" id="photographer" className="dropdown--row">
-              <option value={newArticle.photographer} onChange={handleChange}>Photographer</option>
+            Photographer{" "}
+            <select
+              name="photographer"
+              id="photographer"
+              className="dropdown--row"
+            >
+              <option value={newArticle.photographer} onChange={handleChange}>
+                Photographer
+              </option>
             </select>
             <br></br>
-          </form>
+          </form> */}
 
           <li className="form--row">
             <label>Deadline</label>
@@ -92,9 +183,17 @@ export default function Upload() {
 
           <br></br>
 
-          <button type="submit" onClick={handleUpload} className="form--button">
+          <button
+            type="submit"
+            onClick={handleUpload}
+            onClick={() => setButtonPopup(true)}
+            className="form--button"
+          >
             Submit Article
           </button>
+          <Popup trigger={buttonPopup}>
+            <h5>You have succesfully submitted a new article!</h5>
+          </Popup>
         </ul>
       </form>
     </div>
