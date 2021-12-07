@@ -62,6 +62,72 @@ export default function Upload() {
 
           <li className="form--row">
             <label>Section</label>
+            <input
+              type="text"
+              placeholder="section"
+              name="section"
+              value={newArticle.section}
+              onChange={handleChange}
+            />
+          </li>
+
+          <li className="form--row">
+            <label>Journalist</label>
+            <input
+              type="text"
+              placeholder="Journalist"
+              name="journalist"
+              value={newArticle.journalist}
+              onChange={handleChange}
+            />
+          </li>
+
+          <li className="form--row">
+            <label>Photographer</label>
+            <input
+              type="text"
+              placeholder="photographer"
+              name="photographer"
+              value={newArticle.photographer}
+              onChange={handleChange}
+            />
+          </li>
+
+          <li className="form--row">
+            <label>Deadline</label>
+            <input
+              type="date"
+              placeholder="date"
+              name="deadlinedate"
+              value={newArticle.deadlinedate}
+              onChange={handleChange}
+            />
+          </li>
+
+          <li className="form--row">
+            <label>Deadline</label>
+            <input
+              type="text"
+              placeholder="deadline"
+              name="deadline"
+              value={newArticle.deadline}
+              onChange={handleChange}
+            />
+          </li>
+
+          <li className="form--row">
+            <label>Busy</label>
+            <input
+              type="busy"
+              placeholder="busy"
+              name="busy"
+              value={newArticle.busy}
+              onChange={handleChange}
+            />
+          </li>
+
+          {/* <li className="form--row">
+            <label>Section</label>
             <select
               placeholder="Select Section"
               name="section"
@@ -128,48 +194,6 @@ export default function Upload() {
             </select>
           </li>
 
-          {/* <form action="/action_page.php">
-            Section{" "}
-            <select name="section" id="section" className="dropdown--row">
-              <option value={newArticle.section} onChange={handleChange}>
-                Section
-              </option>
-            </select>
-            <br></br>
-            Size{" "}
-            <select name="size" id="size" className="dropdown--row">
-              <option value={newArticle.size} onChange={handleChange}>
-                Size
-              </option>
-            </select>
-            <br></br>
-            State{" "}
-            <select name="state" id="state" className="dropdown--row">
-              <option value={newArticle.state} onChange={handleChange}>
-                State
-              </option>
-            </select>
-            <br></br>
-            Journalist{" "}
-            <select name="journalist" id="journalist" className="dropdown--row">
-              <option value={newArticle.journalist} onChange={handleChange}>
-                Journalist
-              </option>
-            </select>
-            <br></br>
-            Photographer{" "}
-            <select
-              name="photographer"
-              id="photographer"
-              className="dropdown--row"
-            >
-              <option value={newArticle.photographer} onChange={handleChange}>
-                Photographer
-              </option>
-            </select>
-            <br></br>
-          </form> */}
-
           <li className="form--row">
             <label>Deadline</label>
             <input
@@ -179,14 +203,14 @@ export default function Upload() {
               value={newArticle.deadline}
               onChange={handleChange}
             />
-          </li>
+          </li> */}
 
           <br></br>
 
           <button
             type="submit"
             onClick={handleUpload}
-            onClick={() => setButtonPopup(true)}
+            // onClick={() => setButtonPopup(true)}
             className="form--button"
           >
             Submit Article

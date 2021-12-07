@@ -20,7 +20,7 @@ export default function Articletable() {
           Photographer: wrapper.attributes.Photographer,
           State: wrapper.attributes.State,
           Size: wrapper.attributes.Size,
-          Deadline: wrapper.attributes.Deadline,
+          Deadline: wrapper.attributes.DeadlineDate.toString().slice(4, 15),
         };
         /** Add Article is not connected to database anymore */
 
@@ -51,7 +51,6 @@ export default function Articletable() {
       <thead>
         <br></br>
         <tr>
-          
           {Array.from({ length: columnLength }).map((_, index) => (
             <th key={index}>{columnTitles[index]}</th>
           ))}
@@ -68,7 +67,7 @@ export default function Articletable() {
                 {Articles[index].ArticleId}
               </Button>
             </td>
-            
+
             <td>{Articles[index].Title}</td>
             <td>{Articles[index].Section}</td>
             <td>{Articles[index].Journalist}</td>
