@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { uploadArticle } from "../DatabaseInteraction/db";
 import "../App.css";
+import Popup from "./Popup";
 
 export default function Upload() {
   const [articles, setArticles] = useState([]);
@@ -9,6 +10,8 @@ export default function Upload() {
   const [newArticle, setNewArticle] = useState({});
 
   const navigate = useNavigate();
+
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   async function handleUpload(e) {
     e.preventDefault();
@@ -92,9 +95,12 @@ export default function Upload() {
 
           <br></br>
 
-          <button type="submit" onClick={handleUpload} className="form--button">
+          <button type="submit" onClick={handleUpload} onClick={() => setButtonPopup(true)} className="form--button">
             Submit Article
           </button>
+          <Popup trigger={buttonPopup}>
+            <h5>You have succesfully submitted a new article!</h5>
+          </Popup>
         </ul>
       </form>
     </div>
