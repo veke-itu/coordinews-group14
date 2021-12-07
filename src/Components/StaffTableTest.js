@@ -5,7 +5,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-export default function Articletable() {
+export default function Stafftable() {
   const [Articles, setArticle] = useState();
 
   useEffect(() => {
@@ -13,14 +13,14 @@ export default function Articletable() {
       console.log(Articles);
       const articlesMapped = Articles.map((wrapper) => {
         const mappedArticle = {
-          ArticleId: wrapper.id,
-          Title: wrapper.attributes.Title,
-          Section: wrapper.attributes.Section,
+
           Journalist: wrapper.attributes.Journalist,
+          Busy: wrapper.attributes.Busy,
+          Date: wrapper.attributes.Date,
           Photographer: wrapper.attributes.Photographer,
-          State: wrapper.attributes.State,
-          Size: wrapper.attributes.Size,
-          Deadline: wrapper.attributes.Deadline,
+          Busy_Photographer: wrapper.attributes.Busy_Photographer,
+          DatePhotographer: wrapper.attributes.DatePhotographer,
+          
         };
         /** Add Article is not connected to database anymore */
 
@@ -50,32 +50,43 @@ export default function Articletable() {
     <table class="table table-hover">
       <thead>
         <br></br>
+       
         <tr>
           
           {Array.from({ length: columnLength }).map((_, index) => (
             <th key={index}>{columnTitles[index]}</th>
           ))}
         </tr>
+        
       </thead>
       <tbody>
         {Array.from({ length: rowLength }).map((_, index) => (
           <tr>
             {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
-            <td as={Link} to="/Add_Article">
+            <td as={Link} to="/Staff">
               {/* TODO: Link Reference */}
               {/* <Button variant="light" as={Link} to="/Add_Article">Add Article</Button> */}
-              <Button variant="light" as={Link} to="/ArticleId">
-                {Articles[index].ArticleId}
+              <Button variant="light" as={Link} to="/StaffId">
+                {Articles[index].StaffId}
               </Button>
             </td>
             
-            <td>{Articles[index].Title}</td>
-            <td>{Articles[index].Section}</td>
+           
             <td>{Articles[index].Journalist}</td>
+            <td>{Articles[index].Busy}</td>
+            <td>{Articles[index].Date}</td>
+        
+     
+            <td></td>
             <td>{Articles[index].Photographer}</td>
-            <td>{Articles[index].State}</td>
-            <td>{Articles[index].Size}</td>
-            <td>{Articles[index].Deadline}</td>
+            <td>{Articles[index].Busy_Photographer}</td>
+            <td>{Articles[index].DatePhotographer}</td>
+           
+           
+   
+        
+        
+            
           </tr>
         ))}
       </tbody>

@@ -1,13 +1,13 @@
-import "../App.css";
-import StaffOverview from "./Staff/StaffOverview";
-import StaffTable from "./Staff/StaffTable";
-import JobTable from "./Staff/JobTable";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Stafftable from "./StaffTableTest";
+import { Link } from "react-router-dom";
+import "../App.css";
+
 
 export default function Staff() {
   return (
@@ -44,12 +44,28 @@ export default function Staff() {
             <Dropdown.Item href="#/action-3">LS</Dropdown.Item>
             <Dropdown.Item href="#/action-3">MH</Dropdown.Item>
         </DropdownButton>
+
+        <DropdownButton id="dropdown-basic-button" title="Date" className="filter--rough" variant="outline-secondary" >
+          <li className="form--row">
+            
+              <input
+               type="date"
+               placeholder="Date"
+               name="Date"
+             />
+          </li>
+        </DropdownButton>
+
+      
+      
+         
         </ButtonGroup>
 
-    
+       
 
-        {/*<StaffTable />
-        <JobTable /> */}
+        <br></br>
+        <Stafftable />
+        
     </div>
   </>
   );
