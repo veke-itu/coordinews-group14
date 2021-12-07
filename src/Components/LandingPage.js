@@ -15,7 +15,6 @@ export default function LandingPage() {
       {!Parse.User.current() && (
         <div className="splitScreenLanding">
           <img
-          /*We can't find this pic in the folder*/
             src={LandingPageLogo}
             alt="Coordinews-Logo"
             className="leftPaneLanding"
