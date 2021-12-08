@@ -20,8 +20,9 @@ export default function Articletable() {
           Photographer: wrapper.attributes.Photographer,
           State: wrapper.attributes.State,
           Size: wrapper.attributes.Size,
-          Deadline: wrapper.attributes.DeadlineDate.toString().slice(4, 15),
+          Deadline: wrapper.attributes.Deadline,
         };
+        /** Add Article is not connected to database anymore .toString().slice(4, 15) */
 
         console.log(mappedArticle);
 

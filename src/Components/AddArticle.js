@@ -32,6 +32,7 @@ export default function Upload() {
       ...newArticle,
       [event.target.name]: event.target.value,
     });
+    console.log(event.target.name + " " + event.target.value);
   }
 
   return (
@@ -61,72 +62,47 @@ export default function Upload() {
           </li>
 
           <li className="form--row">
-            <label>Section</label>
-            <input
-              type="text"
-              placeholder="section"
-              name="section"
-              value={newArticle.section}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li className="form--row">
             <label>Journalist</label>
-            <input
-              type="text"
-              placeholder="Journalist"
+            <select
               name="journalist"
               value={newArticle.journalist}
               onChange={handleChange}
-            />
+            >
+              <option value="" selected disabled hidden>
+                Please Select Here
+              </option>
+              <option>LA</option>
+              <option>LK</option>
+              <option>KA</option>
+              <option>LA</option>
+              <option>JN</option>
+              <option>LP</option>
+              <option>CJ</option>
+              <option>other</option>
+            </select>
           </li>
 
           <li className="form--row">
             <label>Photographer</label>
-            <input
-              type="text"
-              placeholder="photographer"
+            <select
               name="photographer"
               value={newArticle.photographer}
               onChange={handleChange}
-            />
+            >
+              <option value="" selected disabled hidden>
+                Please Select Here
+              </option>
+              <option>LI</option>
+              <option>PL</option>
+              <option>AJ</option>
+              <option>MA</option>
+              <option>JH</option>
+              <option>JN</option>
+              <option>other</option>
+            </select>
           </li>
 
           <li className="form--row">
-            <label>Deadline</label>
-            <input
-              type="date"
-              placeholder="date"
-              name="deadlinedate"
-              value={newArticle.deadlinedate}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li className="form--row">
-            <label>Deadline</label>
-            <input
-              type="text"
-              placeholder="deadline"
-              name="deadline"
-              value={newArticle.deadline}
-              onChange={handleChange}
-            />
-          </li>
-
-          <li className="form--row">
-            <label>Busy</label>
-            <input
-              type="busy"
-              placeholder="busy"
-              name="busy"
-              value={newArticle.busy}
-              onChange={handleChange}
-            />
-          </li>
-
-          {/* <li className="form--row">
             <label>Section</label>
             <select
               placeholder="Select Section"
@@ -134,63 +110,47 @@ export default function Upload() {
               value={newArticle.section}
               onChange={handleChange}
             >
+              <option value="" selected disabled hidden>
+                Please Select Here
+              </option>
+              <option>News</option>
               <option>Sports</option>
+              <option>Politics</option>
+              <option>Local</option>
+              <option>World</option>
+              <option>Business</option>
+              <option>other</option>
             </select>
           </li>
 
           <li className="form--row">
             <label>Size</label>
-            <select
-              placeholder="Select Size"
-              name="size"
-              value={newArticle.size}
-              onChange={handleChange}
-            >
-              <option>Small</option>
-              <option>Medium</option>
-              <option>Large</option>
+            <select name="size" value={newArticle.size} onChange={handleChange}>
+              <option value="" selected disabled hidden>
+                Please Select Here
+              </option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>other</option>
             </select>
           </li>
 
           <li className="form--row">
             <label>State</label>
             <select
-              placeholder="Select State"
               name="state"
               value={newArticle.state}
               onChange={handleChange}
             >
+              <option value="" selected disabled hidden>
+                Please Select Here
+              </option>
+              <option>P</option>
               <option>A</option>
-              <option>B</option>
+              <option>D</option>
               <option>C</option>
-            </select>
-          </li>
-
-          <li className="form--row">
-            <label>Journalist</label>
-            <select
-              placeholder="Select Journalist"
-              name="journalist"
-              value={newArticle.journalist}
-              onChange={handleChange}
-            >
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
-            </select>
-          </li>
-
-          <li className="form--row">
-            <label>Photographer</label>
-            <select
-              placeholder="Select Photographer"
-              name="photographer"
-              value={newArticle.photographer}
-              onChange={handleChange}
-            >
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
+              <option>other</option>
             </select>
           </li>
 
@@ -198,12 +158,12 @@ export default function Upload() {
             <label>Deadline</label>
             <input
               type="date"
-              placeholder="Add Deadline"
+              placeholder="deadline"
               name="deadline"
               value={newArticle.deadline}
               onChange={handleChange}
             />
-          </li> */}
+          </li>
 
           <br></br>
 
