@@ -210,12 +210,12 @@ export default function Upload() {
           <button
             type="submit"
             onClick={handleUpload}
-            // onClick={() => setButtonPopup(true)}
+            onClick={() => setButtonPopup(true)}
             className="form--button"
           >
             Submit Article
           </button>
-          <Popup trigger={buttonPopup}>
+          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <h5>You have succesfully submitted a new article!</h5>
           </Popup>
         </ul>

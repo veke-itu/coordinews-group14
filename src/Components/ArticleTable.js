@@ -22,7 +22,6 @@ export default function Articletable() {
           Size: wrapper.attributes.Size,
           Deadline: wrapper.attributes.DeadlineDate.toString().slice(4, 15),
         };
-        /** Add Article is not connected to database anymore */
 
         console.log(mappedArticle);
 
