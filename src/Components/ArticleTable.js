@@ -12,7 +12,7 @@ export default function Articletable() {
   const [search, setSearch] = useState("");
   const [journalist, setJournalist] = useState("");
   const [photographer, setPhotographer] = useState("");
-  const [newArticle, setSection] = useState({});
+  const [section, setSection] = useState({});
 
   const searchOperator = (event) => {
     setSearch(event.target.value);
@@ -56,19 +56,22 @@ export default function Articletable() {
     article.Title.includes(search)
   );
 
+  console.log("Check: ", filteredArticles);
+
   // && article.Section.includes(journalist)
   const columnTitles = Object.keys(filteredArticles[0]);
   const columnLength = Object.keys(filteredArticles[0]).length;
   const rowLength = filteredArticles.length;
+  const rowLengthUnfiltered = Articles.length;
 
   const Section = [];
   const Journalist = [];
   const Photographer = [];
 
-  for (let i = 0; i < rowLength; i++) {
-    Section.push(filteredArticles[i].Section);
-    Journalist.push(filteredArticles[i].Journalist);
-    Photographer.push(filteredArticles[i].Photographer);
+  for (let i = 0; i < rowLengthUnfiltered; i++) {
+    Section.push(Articles[i].Section);
+    Journalist.push(Articles[i].Journalist);
+    Photographer.push(Articles[i].Photographer);
   }
 
   function onlyUnique(value, index, self) {
@@ -78,6 +81,13 @@ export default function Articletable() {
   var distinctSection = Section.filter(onlyUnique);
   var distinctJournalist = Journalist.filter(onlyUnique);
   var distinctPhotographer = Photographer.filter(onlyUnique);
+  console.log(
+    "distinctArticles: ",
+    Articles,
+    "distinctSection: ",
+    distinctSection
+  );
+  console.log("distinctJournalist");
 
   function handleSection(event) {
     setSection({
@@ -85,6 +95,7 @@ export default function Articletable() {
     });
     console.log(event.target.name + " " + event.target.value);
   }
+  console.log("Section Check:", section);
 
   return (
     <>
@@ -105,7 +116,7 @@ export default function Articletable() {
           variant="outline-secondary"
           name="journalist"
         >
-          {Array.from({ length: rowLength }).map((_, index) => (
+          {Array.from({ length: distinctSection.length }).map((_, index) => (
             <Dropdown.Item>{distinctJournalist[index]}</Dropdown.Item>
           ))}
         </DropdownButton>
@@ -117,16 +128,12 @@ export default function Articletable() {
 
       <li className="form--row">
         <label>Journalist</label>
-        <select
-          name="section"
-          value={newArticle.section}
-          onChange={handleSection}
-        >
+        <select name="section" value={section.section} onChange={handleSection}>
           <option value="" selected disabled hidden>
             Please Select Here
           </option>
 
-          {Array.from({ length: rowLength }).map((_, index) => (
+          {Array.from({ length: rowLengthUnfiltered }).map((_, index) => (
             <option>{distinctSection[index]}</option>
           ))}
         </select>
