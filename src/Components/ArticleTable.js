@@ -9,11 +9,10 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 
 export default function Articletable() {
   const [Articles, setArticles] = useState();
-  const [filteredArticles, setFilteredArticles] = useState();
   const [search, setSearch] = useState("");
   const [journalist, setJournalist] = useState("");
   const [photographer, setPhotographer] = useState("");
-  const [filterSection, setFilterSection] = useState({});
+  const [newArticle, setSection] = useState({});
 
   const searchOperator = (event) => {
     setSearch(event.target.value);
@@ -53,24 +52,12 @@ export default function Articletable() {
     );
   }
 
-  setFilteredArticles(
-    Object.values(Articles).filter(
-      (article) =>
-        article.Title.includes(search) &&
-        article.Section.includes(filterSection.section)
-    )
+  const filteredArticles = Object.values(Articles).filter((article) =>
+    article.Title.includes(search)
   );
 
-  if (Array.isArray(filteredArticles) && filteredArticles.length) {
-    console.log("checker 1", Object.keys(filteredArticles[0]));
-  } else {
-    console.log("checker 2", Object.keys(Articles[0]));
-  }
-
-  console.log("Check: ", filteredArticles);
-  console.log("Check2: ", Object.keys(Articles[0]));
-  console.log("Length Check3: ", Object.keys(columnTitles));
-
+  // && article.Section.includes(journalist)
+  const columnTitles = Object.keys(filteredArticles[0]);
   const columnLength = Object.keys(filteredArticles[0]).length;
   const rowLength = filteredArticles.length;
 
@@ -93,12 +80,11 @@ export default function Articletable() {
   var distinctPhotographer = Photographer.filter(onlyUnique);
 
   function handleSection(event) {
-    setFilterSection({
+    setSection({
       [event.target.name]: event.target.value,
     });
     console.log(event.target.name + " " + event.target.value);
   }
-  console.log("section: " + " " + filterSection.section);
 
   return (
     <>
@@ -133,7 +119,7 @@ export default function Articletable() {
         <label>Journalist</label>
         <select
           name="section"
-          value={filterSection.section}
+          value={newArticle.section}
           onChange={handleSection}
         >
           <option value="" selected disabled hidden>
