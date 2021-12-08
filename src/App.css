@@ -48,8 +48,7 @@
   flex: 1;
   border-radius: 10px;
   background: #f5f4f5;
-  color: #786E7A;
-  ;
+  color: #786e7a;
 }
 
 .form--button {
@@ -186,6 +185,13 @@
   vertical-align: middle;
 }
 
+.landing--logged > p {
+  padding-top: 144px;
+  padding-bottom: 48px;
+  color: #f5f4f5;
+  font-size: 32px;
+}
+
 .button {
   position: absolute;
   height: 32px;
@@ -241,7 +247,6 @@ thead th {
   width: 15%; /* Optional */
 }
 
-
 thead,
 tbody {
   display: block;
@@ -289,12 +294,14 @@ tbody {
   margin-left: auto;
   margin-top: -450px;
   margin-bottom: 100px;
-  background: rgba(245, 244, 245, 0.6);
+  background: rgba(245, 244, 245);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: +1;
 }
 
 .popup-inner {
@@ -312,9 +319,17 @@ tbody {
   width: 200px;
   height: 80px;
   margin-top: 85px;
-  margin-bottom: 100;
+  margin-bottom: 100px;
   margin-left: 100px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
   background: hsla(160, 22%, 42%, 1);
   border-radius: 30px;
+}
+
+.check--pop {
+  position: absolute;
+  margin-top: -90px;
+  margin-left: 180px;
+  width: 36px;
+  height: 36px;
 }

@@ -15,15 +15,14 @@ export default function Upload() {
 
   async function handleUpload(e) {
     e.preventDefault();
-    console.log("newa", newArticle);
     setArticles((articles) => [...articles, newArticle]);
   }
 
   useEffect(() => {
     if (articles.length > 0) {
-      console.log(articles);
       uploadArticle(articles);
-      navigate("/");
+      setButtonPopup(true);
+      // navigate("/");
     }
   }, [articles]);
 
@@ -167,12 +166,7 @@ export default function Upload() {
 
           <br></br>
 
-          <button
-            type="submit"
-            onClick={handleUpload}
-            onClick={() => setButtonPopup(true)}
-            className="form--button"
-          >
+          <button type="submit" onClick={handleUpload} className="form--button">
             Submit Article
           </button>
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>

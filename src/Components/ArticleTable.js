@@ -1,4 +1,3 @@
-import Table from "react-bootstrap/Table";
 import { getArticles } from "../DatabaseInteraction/db";
 import { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
