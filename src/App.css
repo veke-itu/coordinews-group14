@@ -48,8 +48,7 @@
   flex: 1;
   border-radius: 10px;
   background: #f5f4f5;
-  color: #786E7A;
-  ;
+  color: #786e7a;
 }
 
 .form--button {
@@ -186,6 +185,13 @@
   vertical-align: middle;
 }
 
+.landing--logged > p {
+  padding-top: 144px;
+  padding-bottom: 48px;
+  color: #f5f4f5;
+  font-size: 32px;
+}
+
 .button {
   position: absolute;
   height: 32px;
@@ -240,7 +246,6 @@ tbody td {
 thead th {
   width: 15%; /* Optional */
 }
-
 
 thead,
 tbody {
