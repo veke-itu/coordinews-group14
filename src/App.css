@@ -314,7 +314,7 @@ tbody {
   right: -100px;
 }
 
-.popup-inner .OK-btn {
+.OK-btn {
   position: absolute;
   width: 200px;
   height: 80px;
@@ -324,6 +324,7 @@ tbody {
 
   background: hsla(160, 22%, 42%, 1);
   border-radius: 30px;
+  z-index: +3;
 }
 
 .check--pop {
