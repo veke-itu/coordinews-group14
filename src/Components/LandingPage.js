@@ -1,4 +1,5 @@
 import Parse from "parse";
+// import { getUsers } from "../DatabaseInteraction/db";
 import { useNavigate } from "react-router-dom";
 import LandingPageLogo from "../Images/Coordinews.png";
 import "../App.css";
@@ -37,7 +38,10 @@ export default function LandingPage() {
       {/* TODO: Make more composable, Get user from database*/}
       {Parse.User.current() && (
         <div className="landing--logged">
-          <p>Hey User XXX, what do you want to work on today?</p> 
+          <p>
+            Hey {Parse.User.current().attributes.username}, what do you want to
+            work on today?
+          </p>
           <a href="/#/ideas">
             <button type="submit" className="form--button--long">
               Ideas
