@@ -28,7 +28,6 @@ async function getJournalist() {
   return await queryJournalist.findAll();
 }
 
-
 async function uploadArticle(articles) {
   return await Promise.all(
     articles.map((article) => {
@@ -39,6 +38,10 @@ async function uploadArticle(articles) {
         newArticle.set("Section", article.section);
         newArticle.set("Journalist", article.journalist);
         newArticle.set("Photographer", article.photographer);
+        newArticle.set("State", article.state);
+        newArticle.set("Size", article.size);
+        newArticle.set("Deadline", article.deadline);
+        newArticle.set("Comment", article.comment);
 
         return newArticle.save();
       } catch (error) {
