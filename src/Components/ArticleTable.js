@@ -66,12 +66,7 @@ export default function Articletable() {
         article.Journalist.includes(section.journalist)
       );
     } else {
-      return (
-        <h2>
-          Please try again. We could not find the article you were searching
-          for.
-        </h2>
-      );
+      return "Please try again. We could not find the article you were searching for.";
     }
   });
 
@@ -111,7 +106,7 @@ export default function Articletable() {
           <input
             type="text"
             onChange={searchOperator}
-            placeholder="Search Article Titles"
+            placeholder="Search Titles"
           />
 
           <select
