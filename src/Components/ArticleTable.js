@@ -52,13 +52,52 @@ export default function Articletable() {
     );
   }
 
-  const filteredArticles = Object.values(Articles).filter((article) =>
-    article.Title.includes(search)
+  const filterArticles = Object.values(Articles).filter((article) => {
+    if (section.section === undefined && section.journalist === undefined) {
+      console.log("Test: ", article.Title.includes(search));
+      return article.Title.includes(search);
+    }
+  });
+
+  const filteredArticles = Object.values(Articles).filter((article) => {
+    if (section.section === undefined && section.journalist === undefined) {
+      return article.Title.includes(search);
+    } else if (section.section === undefined) {
+      return (
+        article.Title.includes(search) &&
+        article.Journalist.includes(section.journalist)
+      );
+    } else if (section.journalist === undefined) {
+      return (
+        article.Title.includes(search) &&
+        article.Section.includes(section.section)
+      );
+    } else if (
+      section.section != undefined &&
+      section.journalist != undefined
+    ) {
+      return (
+        article.Title.includes(search) &&
+        article.Section.includes(section.section) &&
+        article.Journalist.includes(section.journalist)
+      );
+    } else {
+      return (
+        <h2>
+          Please try again. We could not find the article you were searching
+          for.
+        </h2>
+      );
+    }
+  });
+
+  console.log(
+    "Check Type: ",
+    typeof filteredArticles === "object" ? "Yes" : "No"
   );
+  console.log("includer1: ", section.section === undefined);
+  console.log("includer2: ", section.journalist === undefined);
 
-  console.log("Check: ", filteredArticles);
-
-  // && article.Section.includes(journalist)
   const columnTitles = Object.keys(filteredArticles[0]);
   const columnLength = Object.keys(filteredArticles[0]).length;
   const rowLength = filteredArticles.length;
@@ -95,51 +134,57 @@ export default function Articletable() {
     });
     console.log(event.target.name + " " + event.target.value);
   }
+
   console.log("Section Check:", section);
+  console.log("Section Check 2:", section.section);
+  console.log("Section Check 3:", section.journalist);
 
   return (
     <>
-      <label htmlFor="search">
-        <input
-          id="search"
-          type="text"
-          onChange={searchOperator}
-          placeholder="Search Article Titles"
-        />
-      </label>
+      <ul className="form--list">
+        <li className="form--row--article">
+          <input
+            type="text"
+            onChange={searchOperator}
+            placeholder="Search Article Titles"
+          />
 
-      <ButtonGroup>
-        <DropdownButton
-          id="dropdown-basic-button"
-          title="Journalist"
-          className="filter--rough"
-          variant="outline-secondary"
-          name="journalist"
-        >
-          {Array.from({ length: distinctSection.length }).map((_, index) => (
-            <Dropdown.Item>{distinctJournalist[index]}</Dropdown.Item>
-          ))}
-        </DropdownButton>
-      </ButtonGroup>
-      <ButtonGroup aria-label="Basic example" className="button--adjust">
-        <Button variant="secondary">Current</Button>
-        <Button variant="secondary">Archive</Button>
-      </ButtonGroup>
+          <select
+            name="section"
+            value={section.section}
+            onChange={handleSection}
+          >
+            <option value="" selected disabled hidden>
+              Please Select Here
+            </option>
 
-      <li className="form--row">
-        <label>Journalist</label>
-        <select name="section" value={section.section} onChange={handleSection}>
-          <option value="" selected disabled hidden>
-            Please Select Here
-          </option>
+            {Array.from({ length: rowLengthUnfiltered }).map((_, index) => (
+              <option>{distinctSection[index]}</option>
+            ))}
+          </select>
+          <select
+            name="journalist"
+            value={section.journalist}
+            onChange={handleSection}
+          >
+            <option value="" selected disabled hidden>
+              Please Select Here
+            </option>
 
-          {Array.from({ length: rowLengthUnfiltered }).map((_, index) => (
-            <option>{distinctSection[index]}</option>
-          ))}
-        </select>
-      </li>
+            {Array.from({ length: rowLengthUnfiltered }).map((_, index) => (
+              <option>{distinctJournalist[index]}</option>
+            ))}
+          </select>
+
+          <button type="submit" className="form--button--long--today">
+            Today's Newspaper
+          </button>
+        </li>
+      </ul>
 
       <table class="table table-hover">
+        {/* {typeof filteredArticles === "object" ? 
+        <>*/}
         <thead>
           <br></br>
           <tr>
@@ -159,7 +204,6 @@ export default function Articletable() {
                   {filteredArticles[index].ArticleId}
                 </Button>
               </td>
-
               <td>{filteredArticles[index].Title}</td>
               <td>{filteredArticles[index].Section}</td>
               <td>{filteredArticles[index].Journalist}</td>
@@ -170,6 +214,17 @@ export default function Articletable() {
             </tr>
           ))}
         </tbody>
+        {/* </> : 
+        <>
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th> Please try again. Unfortunately, we could not find the article you were looking for.
+          </th>
+            </tr>
+          </thead>
+          </>
+         } */}
       </table>
     </>
   );
