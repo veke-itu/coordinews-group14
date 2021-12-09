@@ -17,7 +17,7 @@ export default function Articletable() {
     getArticles().then((Articles) => {
       const articlesMapped = Articles.map((wrapper) => {
         const mappedArticle = {
-          ArticleId: wrapper.id,
+          ID: wrapper.id,
           Title: wrapper.attributes.Title,
           Section: wrapper.attributes.Section,
           Journalist: wrapper.attributes.Journalist,
@@ -160,8 +160,8 @@ export default function Articletable() {
               <td as={Link} to="/Add_Article">
                 {/* TODO: Link Reference */}
                 {/* <Button variant="light" as={Link} to="/Add_Article">Add Article</Button> */}
-                <Button variant="light" as={Link} to="/ArticleId">
-                  {filteredArticles[index].ArticleId}
+                <Button variant="light" as={Link} to="/ID">
+                  {filteredArticles[index].ID}
                 </Button>
               </td>
               <td>{filteredArticles[index].Title}</td>
