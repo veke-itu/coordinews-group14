@@ -3,15 +3,10 @@ import { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 
 export default function Articletable() {
   const [Articles, setArticles] = useState();
   const [search, setSearch] = useState("");
-  const [journalist, setJournalist] = useState("");
-  const [photographer, setPhotographer] = useState("");
   const [section, setSection] = useState({});
 
   const searchOperator = (event) => {
@@ -20,7 +15,6 @@ export default function Articletable() {
 
   useEffect(() => {
     getArticles().then((Articles) => {
-      console.log(Articles);
       const articlesMapped = Articles.map((wrapper) => {
         const mappedArticle = {
           ArticleId: wrapper.id,
@@ -34,12 +28,9 @@ export default function Articletable() {
         };
         /** Add Article is not connected to database anymore .toString().slice(4, 15) */
 
-        console.log(mappedArticle);
-
         return mappedArticle;
       });
 
-      console.log("Processing Article", articlesMapped);
       setArticles(articlesMapped);
     });
   }, []);
@@ -51,13 +42,6 @@ export default function Articletable() {
       </Spinner>
     );
   }
-
-  const filterArticles = Object.values(Articles).filter((article) => {
-    if (section.section === undefined && section.journalist === undefined) {
-      console.log("Test: ", article.Title.includes(search));
-      return article.Title.includes(search);
-    }
-  });
 
   const filteredArticles = Object.values(Articles).filter((article) => {
     if (section.section === undefined && section.journalist === undefined) {
@@ -91,13 +75,6 @@ export default function Articletable() {
     }
   });
 
-  console.log(
-    "Check Type: ",
-    typeof filteredArticles === "object" ? "Yes" : "No"
-  );
-  console.log("includer1: ", section.section === undefined);
-  console.log("includer2: ", section.journalist === undefined);
-
   const columnTitles = Object.keys(filteredArticles[0]);
   const columnLength = Object.keys(filteredArticles[0]).length;
   const rowLength = filteredArticles.length;
@@ -120,24 +97,12 @@ export default function Articletable() {
   var distinctSection = Section.filter(onlyUnique);
   var distinctJournalist = Journalist.filter(onlyUnique);
   var distinctPhotographer = Photographer.filter(onlyUnique);
-  console.log(
-    "distinctArticles: ",
-    Articles,
-    "distinctSection: ",
-    distinctSection
-  );
-  console.log("distinctJournalist");
 
   function handleSection(event) {
     setSection({
       [event.target.name]: event.target.value,
     });
-    console.log(event.target.name + " " + event.target.value);
   }
-
-  console.log("Section Check:", section);
-  console.log("Section Check 2:", section.section);
-  console.log("Section Check 3:", section.journalist);
 
   return (
     <>
