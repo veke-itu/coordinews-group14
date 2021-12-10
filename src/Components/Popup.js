@@ -1,10 +1,12 @@
 import React from "react";
 import { FaRegWindowClose } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa";
-
+import { useNavigate } from "react-router";
 import "../App.css";
 
 export default function Popup(props) {
+
+const navigate = useNavigate();
+
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
@@ -12,14 +14,10 @@ export default function Popup(props) {
           className="close-btn"
           onClick={() => props.setTrigger(false)}
         />
-
         <FaCheck className="check--pop" />
-        <a href="/#/articles">
-          <button type="submit" className="OK-btn">
+          <button type="submit" className="OK-btn" onClick={() => {navigate("/Articles")}}>
             Take me to Articles
           </button>
-        </a>
-        {/* <button className="OK-btn">Take me to Articles</button> */}
         {props.children}
       </div>
     </div>
