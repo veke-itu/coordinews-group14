@@ -39,7 +39,7 @@ export default function () {
   }
 
   const distinctArticle = Object.values(Articles).filter((article) => {
-    return article.ArticleId.includes("4FJgD0ERx7");
+    return article.ArticleId.includes("7HSBgEiApD");
   });
 
   console.log("Check the Articles: ", distinctArticle);

@@ -211,7 +211,7 @@ export default function Articletable() {
               <td as={Link} to="/Add_Article">
                 {/* TODO: Link Reference */}
                 {/* <Button variant="light" as={Link} to="/Add_Article">Add Article</Button> */}
-                <Button variant="light" as={Link} to="/ID">
+                <Button variant="light" as={Link} to="/ArticleId">
                   {filteredArticles[index].ID}
                 </Button>
               </td>
