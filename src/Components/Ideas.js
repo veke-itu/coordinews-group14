@@ -12,7 +12,7 @@ export default function Ideas() {
   return (
     <>
       <div className="background--box">
-        <p className="overview--header">Article Overview</p>
+        <p className="overview--header">Idea Overview</p>
 
         <br></br>
         <Articletable />

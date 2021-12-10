@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export default function SignUp() {
     const user = new Parse.User();
     user.setUsername(username);
     user.setPassword(password);
+    // user.setName(name);
     user.setEmail(email);
     try {
       await user.signUp();
@@ -33,12 +35,18 @@ export default function SignUp() {
     setEmail(e.target.value);
   }
 
+  function positionChange(e) {
+    setName(e.target.value);
+  }
+
+  console.log("position: ", name);
+
   return (
     <div className="background--box">
-      <div id="second">
+      <div id="second--signup">
         <form>
           <ul>Sign up to Coordinews {"\u270D"}</ul>
-          <ul Username="form--list">
+          <ul className="form--list">
             <li className="form--row">
               <label>Username</label>
               <input
@@ -63,6 +71,22 @@ export default function SignUp() {
                 placeholder="Enter email"
               />
             </li>
+            <li className="form--row">
+              <label>Position</label>
+              <select
+                placeholder="Select Position"
+                name="position"
+                value={name}
+                onChange={positionChange}
+              >
+                <option value="" selected disabled hidden>
+                  Please Select Here
+                </option>
+                <option>Journalist</option>
+                <option>Photographer</option>
+                <option>Editor</option>
+              </select>
+            </li>
           </ul>
 
           <button
@@ -70,7 +94,7 @@ export default function SignUp() {
             className="form--button"
             type="submit"
           >
-            log in
+            Sign Up
           </button>
         </form>
       </div>
