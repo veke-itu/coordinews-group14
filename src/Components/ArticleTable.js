@@ -8,6 +8,7 @@ export default function Articletable() {
   const [Articles, setArticles] = useState();
   const [search, setSearch] = useState("");
   const [section, setSection] = useState({});
+  const [date, setDate] = useState();
 
   const searchOperator = (event) => {
     setSearch(event.target.value);
@@ -43,29 +44,68 @@ export default function Articletable() {
     );
   }
 
+  var today = new Date();
+  var dateToday =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+
+  function currentNewspaper() {
+    if (date === undefined) {
+      setDate(dateToday);
+    } else {
+      setDate();
+    }
+  }
+  console.log("Check Type of Date: ", typeof date);
+  console.log("Check Adjusted of Date: ", date);
+
+  console.log("Set Date : ", date);
+
   const filteredArticles = Object.values(Articles).filter((article) => {
-    if (section.section === undefined && section.journalist === undefined) {
+    if (
+      section.section === undefined &&
+      section.journalist === undefined &&
+      date === undefined
+    ) {
       return article.Title.includes(search);
+    } else if (
+      section.journalist === undefined &&
+      section.section === undefined
+    ) {
+      console.log("Innerhalb Check", date);
+      console.log("Deadline Check: ", article.Deadline);
+      console.log("CheckerCheker3 Innerhalb", article.Deadline.includes(date));
+      return article.Title.includes(search) && article.Deadline.includes(date);
     } else if (section.section === undefined) {
+      article.Title.includes(search) &&
+        article.Journalist.includes(section.journalist) &&
+        article.Deadline.includes(date);
+    } else if (section.journalist === undefined) {
+      article.Title.includes(search) &&
+        article.Section.includes(section.section) &&
+        article.Deadline.includes(date);
+    } else if (section.section === undefined && date === undefined) {
       return (
         article.Title.includes(search) &&
         article.Journalist.includes(section.journalist)
       );
-    } else if (section.journalist === undefined) {
+    } else if (section.journalist === undefined && date === undefined) {
       return (
         article.Title.includes(search) &&
         article.Section.includes(section.section)
       );
     } else if (
       section.section != undefined &&
-      section.journalist != undefined
+      section.journalist != undefined &&
+      date != undefined
     ) {
       return (
         article.Title.includes(search) &&
         article.Section.includes(section.section) &&
-        article.Journalist.includes(section.journalist)
+        article.Journalist.includes(section.journalist) &&
+        article.Deadline.includes(date)
       );
     } else {
+      // TODO: Adjustment
       return "Please try again. We could not find the article you were searching for.";
     }
   });
@@ -99,6 +139,13 @@ export default function Articletable() {
     });
   }
 
+  console.log("CheckerCheker1 ", filteredArticles[0].Deadline);
+  console.log("CheckerCheker2 ", dateToday);
+
+  console.log("CheckerCheker3 ", filteredArticles[0].Deadline === date);
+  console.log("Date Today ", dateToday);
+
+  // TODO: Adjust Dropdown for empty
   return (
     <>
       <ul className="form--list">
@@ -136,8 +183,12 @@ export default function Articletable() {
             ))}
           </select>
 
-          <button type="submit" className="form--button--long--today">
-            Today's Newspaper
+          <button
+            type="submit"
+            className="form--button--long--today"
+            onClick={currentNewspaper}
+          >
+            Current Newspaper
           </button>
         </li>
       </ul>
