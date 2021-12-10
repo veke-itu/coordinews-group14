@@ -1,6 +1,7 @@
 import React from "react";
 import { FaRegWindowClose } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { FaCheck } from "react-icons/fa";
 import "../App.css";
 
 export default function Popup(props) {
