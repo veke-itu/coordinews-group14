@@ -21,7 +21,7 @@ export default function SignUp() {
     } catch (error) {
       alert("Error: " + error.message + "Please go back and try again :)");
     }
-    navigate("/ideas");
+    navigate("/#");
   }
 
   function usernameChange(e) {
@@ -35,9 +35,9 @@ export default function SignUp() {
     setEmail(e.target.value);
   }
 
-  function positionChange(e) {
-    setName(e.target.value);
-  }
+  // function positionChange(e) {
+  //   setName(e.target.value);
+  // }
 
   console.log("position: ", name);
 
@@ -71,14 +71,14 @@ export default function SignUp() {
                 placeholder="Enter email"
               />
             </li>
-            <li className="form--row">
+            {/* <li className="form--row">
               <label>Position</label>
               <select
                 placeholder="Select Position"
                 name="position"
                 value={name}
                 onChange={positionChange}
-              >
+              > 
                 <option value="" selected disabled hidden>
                   Please Select Here
                 </option>
@@ -86,7 +86,7 @@ export default function SignUp() {
                 <option>Photographer</option>
                 <option>Editor</option>
               </select>
-            </li>
+            </li>*/}
           </ul>
 
           <button
