@@ -22,6 +22,15 @@
   padding-left: 16px;
   padding-right: 16px;
 }
+
+.form--row--article {
+  display: flex;
+  justify-content: space-around;
+  justify-content: flex-end;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .form--row > label {
   padding-top: 16px;
   padding-left: 16px;
@@ -39,6 +48,19 @@
   box-sizing: border-box;
   padding-left: 32px;
 }
+
+.form--row--article > input,
+.form--row--article > option,
+.form--row--article > select {
+  flex: 1;
+  border-radius: 10px;
+  background: #f5f4f5;
+  border: 2px solid #c4c4c4;
+  box-sizing: border-box;
+  padding-left: 12px;
+  width: 40px;
+}
+
 .dropdown--row {
   padding-top: 8px;
   padding-left: 16px;
@@ -78,7 +100,6 @@
 
 .form--button--long {
   border-radius: 10px;
-  width: 220px;
   background: #4a1256;
   padding: 10px 22px;
   color: #f5f4f5;
@@ -97,6 +118,33 @@
   background: #f5f4f5;
   color: #8d519a;
 }
+
+.form--button--long--today {
+  border-radius: 10px;
+  width: 220px;
+  background: #5a535c;
+  color: #f5f4f5;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.form--button--long--today:hover {
+  transition: all 0.2s ease-in-out;
+  background: #f5f4f5;
+  color: #5a535c;
+}
+
+/* .search-bar {
+  border-radius: 10px;
+  width: 220px;
+  background: #f5f4f5;
+  color: #5a535c;
+  border: 2px solid #c4c4c4;
+  box-sizing: border-box;
+} */
 
 .actionComponents {
   display: flex;
@@ -174,8 +222,17 @@
   height: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 12.5%;
+  padding-top: 10%;
 }
+
+#second--signup {
+  width: 75%;
+  height: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5%;
+}
+
 .landing--logged {
   margin-left: auto;
   margin-right: auto;
@@ -236,15 +293,16 @@
   color: #5a535c;
 }
 table {
-  width: 100%; /* Optional */
+  width: 100%;
+  margin-right: 24px;
 }
 
 tbody td {
-  width: 14%;
+  width: 15%;
 }
 
 thead th {
-  width: 15%; /* Optional */
+  width: 15.3%; /* Optional */
 }
 
 thead,
@@ -253,7 +311,7 @@ tbody {
 }
 
 tbody {
-  height: 274px;
+  height: 244px;
   overflow-y: auto;
   overflow-x: hidden;
 }
