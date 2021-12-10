@@ -105,8 +105,7 @@ export default function Articletable() {
         article.Deadline.includes(date)
       );
     } else {
-      // TODO: Adjustment
-      return "Please try again. We could not find the article you were searching for.";
+      return [];
     }
   });
 
@@ -194,13 +193,11 @@ export default function Articletable() {
       </ul>
 
       <table class="table table-hover">
-        {/* {typeof filteredArticles === "object" ? 
-        <>*/}
         <thead>
           <br></br>
           <tr>
-            {Array.from({ length: columnLength }).map((_, index) => (
-              <th key={index}>{columnTitles[index]}</th>
+            {Object.keys(filteredArticles[0]).map((articleHeader) => (
+              <th key={articleHeader}>{articleHeader}</th>
             ))}
           </tr>
         </thead>
@@ -211,7 +208,11 @@ export default function Articletable() {
               <td as={Link} to="/Add_Article">
                 {/* TODO: Link Reference */}
                 {/* <Button variant="light" as={Link} to="/Add_Article">Add Article</Button> */}
-                <Button variant="light" as={Link} to="/ArticleId">
+                <Button
+                  variant="light"
+                  as={Link}
+                  to={"/articles/articleDetails/" + filteredArticles[index].ID}
+                >
                   {filteredArticles[index].ID}
                 </Button>
               </td>
@@ -225,17 +226,6 @@ export default function Articletable() {
             </tr>
           ))}
         </tbody>
-        {/* </> : 
-        <>
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th> Please try again. Unfortunately, we could not find the article you were looking for.
-          </th>
-            </tr>
-          </thead>
-          </>
-         } */}
       </table>
     </>
   );

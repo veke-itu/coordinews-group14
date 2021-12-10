@@ -1,48 +1,35 @@
-import { getArticles } from "../DatabaseInteraction/db";
+import { getArticle, getArticles } from "../DatabaseInteraction/db";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Spinner from "react-bootstrap/Spinner";
+import { useParams } from "react-router-dom";
 import "../App.css";
 import Popup from "./Popup";
 
 export default function () {
-  const [Articles, setArticles] = useState();
+  const [article, setArticle] = useState();
+
+  const { articleId } = useParams();
+  console.log("Check Params: ", articleId);
+
+  async function getArticleFromDb() {
+    const article = await getArticle(articleId);
+    setArticle(article);
+  }
+
+  useEffect(getArticleFromDb, []);
 
   useEffect(() => {
-    getArticles().then((Articles) => {
-      const articlesMapped = Articles.map((wrapper) => {
-        const mappedArticle = {
-          ArticleId: wrapper.id,
-          Title: wrapper.attributes.Title,
-          Section: wrapper.attributes.Section,
-          Journalist: wrapper.attributes.Journalist,
-          Photographer: wrapper.attributes.Photographer,
-          State: wrapper.attributes.State,
-          Size: wrapper.attributes.Size,
-          Deadline: wrapper.attributes.Deadline,
-        };
-        /** Add Article is not connected to database anymore .toString().slice(4, 15) */
+    console.log("Use Effect Article:", article);
+  }, [article]);
 
-        return mappedArticle;
-      });
-
-      setArticles(articlesMapped);
-    });
-  }, []);
-
-  if (!Articles) {
+  if (!article) {
     return (
       <Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>
       </Spinner>
     );
   }
-
-  const distinctArticle = Object.values(Articles).filter((article) => {
-    return article.ArticleId.includes("7HSBgEiApD");
-  });
-
-  console.log("Check the Articles: ", distinctArticle);
 
   return (
     //TODO: take component out and add information via prop
@@ -53,18 +40,18 @@ export default function () {
             <label>Title</label>
             <input
               type="title"
-              placeholder={distinctArticle[0].Title}
+              placeholder={article.Title}
               name="title"
-              value={distinctArticle[0].Title}
+              value={article.Title}
             />
           </li>
           <li className="form--row">
             <label>Comment</label>
             <input
               type="text"
-              placeholder={distinctArticle[0].Comment}
+              placeholder={article.Comment}
               name="comment"
-              value={distinctArticle[0].Comment}
+              value={article.Comment}
             />
           </li>
 
@@ -72,9 +59,9 @@ export default function () {
             <label>Journalist</label>
             <input
               type="text"
-              placeholder={distinctArticle[0].Journalist}
+              placeholder={article.Journalist}
               name="journalist"
-              value={distinctArticle[0].Journalist}
+              value={article.Journalist}
             />
           </li>
 
@@ -82,9 +69,9 @@ export default function () {
             <label>Photographer</label>
             <input
               type="text"
-              placeholder={distinctArticle[0].Photographer}
+              placeholder={article.Photographer}
               name="photographer"
-              value={distinctArticle[0].Photographer}
+              value={article.Photographer}
             />
           </li>
 
@@ -92,9 +79,9 @@ export default function () {
             <label>Section</label>
             <input
               type="text"
-              placeholder={distinctArticle[0].Section}
+              placeholder={article.Section}
               name="section"
-              value={distinctArticle[0].Section}
+              value={article.Section}
             />
           </li>
 
@@ -102,9 +89,9 @@ export default function () {
             <label>Size</label>
             <input
               type="text"
-              placeholder={distinctArticle[0].Size}
+              placeholder={article.Size}
               name="size"
-              value={distinctArticle[0].Size}
+              value={article.Size}
             />
           </li>
 
@@ -112,9 +99,9 @@ export default function () {
             <label>State</label>
             <input
               type="text"
-              placeholder={distinctArticle[0].State}
+              placeholder={article.State}
               name="state"
-              value={distinctArticle[0].State}
+              value={article.State}
             />
           </li>
 
@@ -122,9 +109,9 @@ export default function () {
             <label>Date</label>
             <input
               type="text"
-              placeholder={distinctArticle[0].Deadline}
+              placeholder={article.Deadline}
               name="date"
-              value={distinctArticle[0].Deadline}
+              value={article.Deadline}
             />
           </li>
         </ul>

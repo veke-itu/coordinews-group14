@@ -24,7 +24,11 @@ function App() {
           <Route path="articles" element={<Articles />} />
           <Route path="staff" element={<Staff />} />
           <Route path="Add_Article" element={<AddArticle />} />
-          <Route path="ArticleId" element={<ArticleId />} />
+          <Route
+            path="/articles/articleDetails/:articleId"
+            element={<ArticleId />}
+          />
+
           <Route path="/" element={<LandingPage />} />
         </Routes>
       </HashRouter>

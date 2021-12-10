@@ -14,6 +14,21 @@ async function getArticles() {
   return await queryArticle.findAll();
 }
 
+async function getArticle(articleId) {
+  const query = new Parse.Query("Article");
+  const article = await query.get(articleId);
+  return {
+    ArticleId: article.get("objectId"),
+    Title: article.get("Title"),
+    Section: article.get("Section"),
+    Journalist: article.get("Journalist"),
+    Photographer: article.get("Photographer"),
+    State: article.get("State"),
+    Size: article.get("Size"),
+    Deadline: article.get("Deadline"),
+  };
+}
+
 async function getPhotographer() {
   const Photographer = Parse.Object.extend("Photographer");
   const queryPhotographer = new Parse.Query(Photographer);
@@ -52,4 +67,11 @@ async function uploadArticle(articles) {
   );
 }
 
-export { getUsers, getArticles, getPhotographer, getJournalist, uploadArticle };
+export {
+  getUsers,
+  getArticles,
+  getArticle,
+  getPhotographer,
+  getJournalist,
+  uploadArticle,
+};
