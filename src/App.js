@@ -10,6 +10,7 @@ import Staff from "./Components/Staff";
 import LandingPage from "./Components/LandingPage";
 import AddArticle from "./Components/AddArticle";
 import ArticleId from "./Components/ArticleId";
+import Form from "./Components/Form";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             path="/articles/articleDetails/:articleId"
             element={<ArticleId />}
           />
+          <Route path="/addIdea" element={<Form />} />
 
           <Route path="/" element={<LandingPage />} />
         </Routes>
