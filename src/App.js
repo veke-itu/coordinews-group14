@@ -11,6 +11,7 @@ import LandingPage from "./Components/LandingPage";
 import AddArticle from "./Components/AddArticle";
 import ArticleId from "./Components/ArticleId";
 import Form from "./Components/Form";
+import IdeaConverter from "./Components/IdeaConverter";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="Add_Article" element={<AddArticle />} />
           <Route
             path="/articles/articleDetails/:articleId"
-            element={<ArticleId />}
+            element={<IdeaConverter />}
           />
           <Route path="addIdea" element={<Form />} />
 

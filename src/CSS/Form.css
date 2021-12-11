@@ -53,7 +53,7 @@
 .form-content-right {
   border-radius: 0 10px 10px 0;
   position: relative;
-  background: #d7badd;
+  background: rgb(141, 81, 154);
 }
 
 .form {
