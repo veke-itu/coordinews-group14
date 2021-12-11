@@ -71,18 +71,7 @@ export default function Articletable() {
       section.journalist === undefined &&
       section.section === undefined
     ) {
-      console.log("Innerhalb Check", date);
-      console.log("Deadline Check: ", article.Deadline);
-      console.log("CheckerCheker3 Innerhalb", article.Deadline.includes(date));
       return article.Title.includes(search) && article.Deadline.includes(date);
-    } else if (section.section === undefined) {
-      article.Title.includes(search) &&
-        article.Journalist.includes(section.journalist) &&
-        article.Deadline.includes(date);
-    } else if (section.journalist === undefined) {
-      article.Title.includes(search) &&
-        article.Section.includes(section.section) &&
-        article.Deadline.includes(date);
     } else if (section.section === undefined && date === undefined) {
       return (
         article.Title.includes(search) &&
@@ -93,6 +82,14 @@ export default function Articletable() {
         article.Title.includes(search) &&
         article.Section.includes(section.section)
       );
+    } else if (section.section === undefined) {
+      article.Title.includes(search) &&
+        article.Journalist.includes(section.journalist) &&
+        article.Deadline.includes(date);
+    } else if (section.journalist === undefined) {
+      article.Title.includes(search) &&
+        article.Section.includes(section.section) &&
+        article.Deadline.includes(date);
     } else if (
       section.section != undefined &&
       section.journalist != undefined &&
