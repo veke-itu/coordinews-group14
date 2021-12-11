@@ -60,85 +60,156 @@ export default function () {
         <div className="form-inputs">
           <label className="form-label">Title</label>
           <input
-            contentEditable="true"
             className="form-input"
             type="text"
-            placeholder={article.Title}
             name="title"
             defaultValue={article.Title}
             onChange={handleChange}
           />
         </div>
 
-        <li className="form--row">
-          <label>Comment</label>
+        <div className="form-inputs">
+          <label className="form-label">Comment</label>
           <input
+            className="form-input"
             type="text"
-            placeholder={article.Comment}
             name="comment"
-            value={article.Comment}
+            defaultValue={article.Comment}
+            onChange={handleChange}
           />
-        </li>
+        </div>
 
-        <li className="form--row">
-          <label>Journalist</label>
-          <input
-            type="text"
-            placeholder={article.Journalist}
-            name="journalist"
-            value={article.Journalist}
-          />
-        </li>
+        <div className="form-inputs">
+          <div className="form-inputs1">
+            <div className="form-inputs">
+              <label className="form-label">Idea Source</label>
+              <input
+                className="form-input1"
+                type="text"
+                name="source"
+                defaultValue={article.Journalist}
+                onChange={handleChange}
+              />
+            </div>
 
-        <li className="form--row">
-          <label>Photographer</label>
-          <input
-            type="text"
-            placeholder={article.Photographer}
-            name="photographer"
-            value={article.Photographer}
-          />
-        </li>
+            <div className="form-inputs">
+              <label className="form-label">Journalist</label>
+              <select
+                className="form-input1"
+                type="text"
+                name="journalist"
+                onChange={handleChange}
+              >
+                <option value="" selected disabled hidden>
+                  Please Select
+                </option>
+                <option>LA</option>
+                <option>LK</option>
+                <option>KA</option>
+                <option>LA</option>
+                <option>JN</option>
+                <option>LP</option>
+                <option>CJ</option>
+                <option>other</option>
+              </select>
+            </div>
 
-        <li className="form--row">
-          <label>Section</label>
-          <input
+            <div className="form-inputs">
+              <label className="form-label">Photographer</label>
+              <select
+                className="form-input1"
+                type="text"
+                name="photogrpaher"
+                onChange={handleChange}
+              >
+                <option value="" selected disabled hidden>
+                  Please Select
+                </option>
+                <option>LI</option>
+                <option>PL</option>
+                <option>AJ</option>
+                <option>MA</option>
+                <option>JH</option>
+                <option>JN</option>
+                <option>other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="form-inputs">
+          <label className="form-label">Section</label>
+          <select
+            className="form-input"
             type="text"
-            placeholder={article.Section}
             name="section"
-            value={article.Section}
-          />
-        </li>
+            onChange={handleChange}
+          >
+            <option value="" selected disabled hidden>
+              Please confirm the section: Currently {article.Section}
+            </option>
+            <option>News</option>
+            <option>Sport</option>
+            <option>Politics</option>
+            <option>Local</option>
+            <option>World</option>
+            <option>Business</option>
+            <option>other</option>
+          </select>
+        </div>
 
-        <li className="form--row">
-          <label>Size</label>
-          <input
+        <div className="form-inputs">
+          <label className="form-label">Work Amount</label>
+          <select
+            className="form-input"
             type="text"
-            placeholder={article.Size}
             name="size"
-            value={article.Size}
-          />
-        </li>
+            onChange={handleChange}
+          >
+            <option value="" selected disabled hidden>
+              Please select the work amount:
+            </option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+        </div>
 
-        <li className="form--row">
-          <label>State</label>
-          <input
+        <div className="form-inputs">
+          <label className="form-label">Current State</label>
+          <select
+            className="form-input"
             type="text"
-            placeholder={article.State}
-            name="state"
-            value={article.State}
-          />
-        </li>
+            name="size"
+            onChange={handleChange}
+          >
+            <option value="" selected disabled hidden>
+              Please select the current state of work:
+            </option>
+            <option>P</option>
+            <option>A</option>
+            <option>D</option>
+            <option>C</option>
+          </select>
+        </div>
 
-        <li className="form--row">
-          <label>Date</label>
+        <div className="form-inputs">
+          <label className="form-label">Deadline Date</label>
           <input
-            type="text"
-            placeholder={article.Deadline}
-            name="date"
-            value={article.Deadline}
+            className="form-input"
+            type="date"
+            name="deadline"
+            defaultValue={newArticle.deadline}
+            onChange={handleChange}
           />
-        </li>
+        </div>
+
+        <button className="form-input-btn" type="submit">
+          Submit Article
+        </button>
+        <span className="form-input-login">
+          You changed your mind about the article? Go <a href="#">back</a>
+        </span>
       </form>
     </div>
   );

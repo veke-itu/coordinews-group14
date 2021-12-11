@@ -86,7 +86,7 @@ export default function AddIdea({ submitForm }) {
         </div>
 
         <div className="form-inputs">
-          <label className="form-label">Journalist</label>
+          <label className="form-label">Photographer</label>
           <select
             className="form-input"
             name="photographer"
@@ -159,7 +159,7 @@ export default function AddIdea({ submitForm }) {
         </div>
 
         <button className="form-input-btn" type="submit" onClick={handleUpload}>
-          Submit Article
+          Submit Idea
         </button>
         <span className="form-input-login">
           Idea not worthy to be noted down? Go <a href="#">back</a>
