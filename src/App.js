@@ -29,7 +29,7 @@ function App() {
             path="/articles/articleDetails/:articleId"
             element={<ArticleId />}
           />
-          <Route path="/addIdea" element={<Form />} />
+          <Route path="addIdea" element={<Form />} />
 
           <Route path="/" element={<LandingPage />} />
         </Routes>

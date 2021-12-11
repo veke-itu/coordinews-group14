@@ -3,7 +3,7 @@ import "../CSS/Form.css";
 import { getArticles } from "../DatabaseInteraction/db";
 import AddIdea from "./AddArticle";
 import FormSuccess from "./FormSuccess";
-import News from "../Images/Bulb.png";
+import News from "../Images/News.png";
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);

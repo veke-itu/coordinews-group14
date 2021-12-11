@@ -16,7 +16,7 @@ export default function Articles() {
 
         <br></br>
         <Articletable />
-        <a href="/#/Add_Article">
+        <a href="/#/addIdea">
           <button type="submit" className="form--button">
             Add Article
           </button>
