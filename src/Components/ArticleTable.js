@@ -18,7 +18,7 @@ export default function Articletable() {
     getArticles().then((Articles) => {
       const articlesMapped = Articles.map((wrapper) => {
         const mappedArticle = {
-          ID: wrapper.id,
+          Details: wrapper.id,
           Title: wrapper.attributes.Title,
           Section: wrapper.attributes.Section,
           Journalist: wrapper.attributes.Journalist,
@@ -106,8 +106,6 @@ export default function Articletable() {
     }
   });
 
-  const columnTitles = Object.keys(filteredArticles[0]);
-  const columnLength = Object.keys(filteredArticles[0]).length;
   const rowLength = filteredArticles.length;
   const rowLengthUnfiltered = Articles.length;
 
@@ -134,12 +132,6 @@ export default function Articletable() {
       [event.target.name]: event.target.value,
     });
   }
-
-  console.log("CheckerCheker1 ", filteredArticles[0].Deadline);
-  console.log("CheckerCheker2 ", dateToday);
-
-  console.log("CheckerCheker3 ", filteredArticles[0].Deadline === date);
-  console.log("Date Today ", dateToday);
 
   // TODO: Adjust Dropdown for empty
   return (
@@ -193,13 +185,13 @@ export default function Articletable() {
         <thead>
           <br></br>
           <tr>
-            {Object.keys(filteredArticles[0]).map((articleHeader) => (
+            {Object.keys(Articles[0]).map((articleHeader) => (
               <th key={articleHeader}>{articleHeader}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: rowLength }).map((_, index) => (
+          {filteredArticles.map((article) => (
             <tr>
               {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
               <td as={Link} to="/Add_Article">
@@ -208,18 +200,18 @@ export default function Articletable() {
                 <Button
                   variant="light"
                   as={Link}
-                  to={"/articles/articleDetails/" + filteredArticles[index].ID}
+                  to={"/articles/articleDetails/" + article.Details}
                 >
-                  {filteredArticles[index].ID}
+                  See more{"\uD83D\uDD0D"}
                 </Button>
               </td>
-              <td>{filteredArticles[index].Title}</td>
-              <td>{filteredArticles[index].Section}</td>
-              <td>{filteredArticles[index].Journalist}</td>
-              <td>{filteredArticles[index].Photographer}</td>
-              <td>{filteredArticles[index].State}</td>
-              <td>{filteredArticles[index].Size}</td>
-              <td>{filteredArticles[index].Deadline}</td>
+              <td>{article.Title}</td>
+              <td>{article.Section}</td>
+              <td>{article.Journalist}</td>
+              <td>{article.Photographer}</td>
+              <td>{article.State}</td>
+              <td>{article.Size}</td>
+              <td>{article.Deadline}</td>
             </tr>
           ))}
         </tbody>
