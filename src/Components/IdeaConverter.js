@@ -4,7 +4,7 @@ import { getArticles } from "../DatabaseInteraction/db";
 import AddIdea from "./AddArticle";
 import ArticleId from "./ArticleId";
 import FormSuccess from "./FormSuccess";
-import Idea from "../Images/Bulb.png";
+import News from "../Images/News.png";
 import "../CSS/Form.css";
 
 const IdeaConverter = () => {
@@ -17,7 +17,7 @@ const IdeaConverter = () => {
     <>
       <div className="form-container">
         <div className="form-content-left">
-          <img className="form-img" src={Idea} alt="news icon" />
+          <img className="form-img" src={News} alt="news icon" />
         </div>
         {!isSubmitted ? <ArticleId submitForm={submitForm} /> : <FormSuccess />}
       </div>
