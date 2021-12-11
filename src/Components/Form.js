@@ -3,7 +3,7 @@ import "../CSS/Form.css";
 import { getArticles } from "../DatabaseInteraction/db";
 import AddIdea from "./AddArticle";
 import FormSuccess from "./FormSuccess";
-import News from "../Images/News.png";
+import Idea from "../Images/Bulb.png";
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,9 +14,8 @@ const Form = () => {
   return (
     <>
       <div className="form-container">
-        <span className="close-btn">×</span>
         <div className="form-content-left">
-          <img className="form-img" src={News} alt="news icon" />
+          <img className="form-img" src={Idea} alt="news icon" />
         </div>
         {!isSubmitted ? <AddIdea submitForm={submitForm} /> : <FormSuccess />}
       </div>

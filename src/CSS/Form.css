@@ -6,7 +6,7 @@
   border-radius: 10px;
   height: 800px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
 }
 
 .close-btn {
@@ -20,18 +20,14 @@
 }
 
 .form-content-left {
-  background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  );
+  background: rgb(223, 220, 224);
   border-radius: 10px 0 0 10px;
   position: relative;
 }
 
 .form-img {
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 40%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -50,14 +46,14 @@
 .form-success {
   text-align: center;
   font-size: 24px;
-  margin-top: 80px;
+  margin-top: 388px;
   color: #fff;
 }
 
 .form-content-right {
   border-radius: 0 10px 10px 0;
   position: relative;
-  background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
+  background: #d7badd;
 }
 
 .form {
@@ -109,8 +105,9 @@
   border: none;
 }
 
-.form-input::placeholder {
-  color: #595959;
+.form-input::placeholder,
+.form-input > option {
+  color: #c4bfc5;
   font-size: 12px;
 }
 
@@ -118,38 +115,52 @@
   width: 80%;
   height: 50px;
   margin-top: 10px;
-  border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  );
+  border-radius: 10px;
+  background: #4a1256;
   outline: none;
   border: none;
-  color: #fff;
+  color: #f5f4f5;
   font-size: 1rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .form-input-btn:hover {
   cursor: pointer;
-  background: linear-gradient(
-    90deg,
-    rgb(39, 143, 255) 0%,
-    rgb(12, 99, 250) 100%
-  );
-  transition: all 0.4s ease-out;
+  transition: all 0.2s ease-in-out;
+  background: #4a1256;
+  background: #f5f4f5;
+  color: #8d519a;
 }
 
 .form-input-login {
   font-size: 0.8rem;
   margin-top: 10px;
-  color: #fff;
+  color: #f5f4f5;
   width: 80%;
   text-align: center;
 }
 
 .form-input-login a {
-  text-decoration: none;
-  color: #27cdff;
+  text-decoration: underline;
+  color: #4a1256;
   font-weight: 600;
+}
+
+::-webkit-datetime-edit {
+  padding: 1em;
+}
+
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-year-field {
+  color: #c4bfc5;
+  padding: 0 0.3em;
+  font-size: 12px;
+}
+::-webkit-inner-spin-button {
+  display: none;
+}
+::-webkit-calendar-picker-indicator {
+  padding-right: 15px;
 }
