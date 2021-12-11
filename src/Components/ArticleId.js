@@ -56,7 +56,13 @@ export default function () {
 
     <div className="form-content-right">
       <form className="form">
-        <h1>Add a new idea by filling out the information below!</h1>
+        <h1>
+          Submit an article by filling the missing pieces!
+          <span style={{ color: "#D7BADD" }}>
+            {" "}
+            (Click on the elements to edit){" "}
+          </span>
+        </h1>
         <div className="form-inputs">
           <label className="form-label">Title</label>
           <input
