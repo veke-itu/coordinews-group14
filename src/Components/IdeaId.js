@@ -5,8 +5,9 @@ import Spinner from "react-bootstrap/Spinner";
 import { useParams } from "react-router-dom";
 import "../App.css";
 import Popup from "./Popup";
+import { uploadArticle } from "../DatabaseInteraction/db";
 
-export default function IdeaId(props) {
+export default function IdeaId(props, { submitForm }) {
   const [idea, setIdea] = useState();
   const [articles, setArticles] = useState([]);
   const [newArticle, setNewArticle] = useState({});
@@ -25,6 +26,19 @@ export default function IdeaId(props) {
     console.log("Use Effect idea:", idea);
   }, [idea]);
 
+  async function handleUpload(e) {
+    e.preventDefault();
+    setArticles((articles) => [...articles, newArticle]);
+    submitForm();
+  }
+
+  useEffect(() => {
+    if (articles.length > 0) {
+      uploadArticle(articles);
+      // setButtonPopup(true);
+    }
+  }, [articles]);
+
   if (!idea) {
     return (
       <Spinner animation="border" role="status">
@@ -32,12 +46,13 @@ export default function IdeaId(props) {
       </Spinner>
     );
   }
+
   function handleChange(event) {
     setNewArticle({
       ...newArticle,
       [event.target.name]: event.target.value,
     });
-    console.log("Change ID: ", event.target.value);
+    console.log("Changer: ", event.target.value);
   }
 
   props.passChildData([ideaId, idea.Expiration]);
@@ -59,6 +74,7 @@ export default function IdeaId(props) {
             type="text"
             name="title"
             defaultValue={idea.Title}
+            value={newArticle.title}
             onChange={handleChange}
           />
         </div>
@@ -70,6 +86,7 @@ export default function IdeaId(props) {
             type="text"
             name="comment"
             defaultValue={idea.Comment}
+            value={newArticle.comment}
             onChange={handleChange}
           />
         </div>
@@ -83,7 +100,6 @@ export default function IdeaId(props) {
                 type="text"
                 name="source"
                 defaultValue={idea.Source}
-                onChange={handleChange}
               />
             </div>
 
@@ -93,6 +109,7 @@ export default function IdeaId(props) {
                 className="form-input1"
                 type="text"
                 name="journalist"
+                value={newArticle.journalist}
                 onChange={handleChange}
               >
                 {/* TODO: Exchange with database values from journalist class */}
@@ -116,6 +133,7 @@ export default function IdeaId(props) {
                 className="form-input1"
                 type="text"
                 name="photogrpaher"
+                value={newArticle.photographer}
                 onChange={handleChange}
               >
                 <option value="" selected disabled hidden>
@@ -140,6 +158,7 @@ export default function IdeaId(props) {
                 className="form-input"
                 type="text"
                 name="section"
+                value={newArticle.section}
                 onChange={handleChange}
               >
                 <option value="" selected disabled hidden>
@@ -161,6 +180,7 @@ export default function IdeaId(props) {
                 className="form-input"
                 type="text"
                 name="size"
+                value={newArticle.size}
                 onChange={handleChange}
               >
                 <option value="" selected disabled hidden>
@@ -179,7 +199,8 @@ export default function IdeaId(props) {
           <select
             className="form-input"
             type="text"
-            name="size"
+            name="state"
+            value={newArticle.state}
             onChange={handleChange}
           >
             <option value="" selected disabled hidden>
@@ -198,11 +219,12 @@ export default function IdeaId(props) {
             className="form-input"
             type="date"
             name="deadline"
+            value={newArticle.deadline}
             onChange={handleChange}
           />
         </div>
 
-        <button className="form-input-btn" type="submit">
+        <button className="form-input-btn" type="submit" onClick={handleUpload}>
           Submit Article
         </button>
         <span className="form-input-login">

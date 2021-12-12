@@ -10,8 +10,6 @@ export default function AddIdea({ submitForm }) {
 
   const [newArticle, setNewArticle] = useState({});
 
-  const navigate = useNavigate();
-
   const [buttonPopup, setButtonPopup] = useState(false);
 
   async function handleUpload(e) {
