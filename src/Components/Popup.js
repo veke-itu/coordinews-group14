@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegWindowClose } from "react-icons/fa";
+import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate } from "react-router";
 import { FaCheck } from "react-icons/fa";
 import "../App.css";
@@ -11,7 +11,7 @@ const navigate = useNavigate();
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <FaRegWindowClose
+        <VscChromeClose
           className="close-btn"
           onClick={() => props.setTrigger(false)}
         />
