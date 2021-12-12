@@ -64,7 +64,7 @@ export default function AddIdea({ submitForm }) {
         </div>
 
         <div className="form-inputs">
-          <label className="form-label">Journalist</label>
+          <label className="form-label">Source</label>
           <select
             className="form-input"
             name="journalist"
@@ -81,27 +81,6 @@ export default function AddIdea({ submitForm }) {
             <option>JN</option>
             <option>LP</option>
             <option>CJ</option>
-            <option>other</option>
-          </select>
-        </div>
-
-        <div className="form-inputs">
-          <label className="form-label">Photographer</label>
-          <select
-            className="form-input"
-            name="photographer"
-            value={newArticle.photographer}
-            onChange={handleChange}
-          >
-            <option value="" selected disabled hidden>
-              Please select the photographer's name
-            </option>
-            <option>LI</option>
-            <option>PL</option>
-            <option>AJ</option>
-            <option>MA</option>
-            <option>JH</option>
-            <option>JN</option>
             <option>other</option>
           </select>
         </div>

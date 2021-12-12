@@ -29,6 +29,26 @@ async function getArticle(articleId) {
   };
 }
 
+async function getIdeas() {
+  const Idea = Parse.Object.extend("Idea");
+  const queryIdea = new Parse.Query(Idea);
+
+  return await queryIdea.findAll();
+}
+
+async function getIdea(ideaId) {
+  const query = new Parse.Query("Idea");
+  const idea = await query.get(ideaId);
+  return {
+    IdeaId: idea.get("objectId"),
+    Title: idea.get("title"),
+    Section: idea.get("section"),
+    Source: idea.get("source"),
+    Potential: idea.get("potential"),
+    Expiration: idea.get("expiration"),
+  };
+}
+
 async function getPhotographer() {
   const Photographer = Parse.Object.extend("Photographer");
   const queryPhotographer = new Parse.Query(Photographer);
@@ -71,6 +91,8 @@ export {
   getUsers,
   getArticles,
   getArticle,
+  getIdeas,
+  getIdea,
   getPhotographer,
   getJournalist,
   uploadArticle,

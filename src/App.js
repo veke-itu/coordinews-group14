@@ -30,6 +30,10 @@ function App() {
             path="/articles/articleDetails/:articleId"
             element={<IdeaConverter />}
           />
+          <Route
+            path="/ideas/ideaDetails/:ideaId"
+            element={<IdeaConverter />}
+          />
           <Route path="addIdea" element={<Form />} />
 
           <Route path="/" element={<LandingPage />} />
