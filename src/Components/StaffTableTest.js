@@ -13,16 +13,17 @@ export default function Stafftable() {
       console.log(Articles);
       const articlesMapped = Articles.map((wrapper) => {
         const mappedArticle = {
-
+          ID: wrapper.id,
           Journalist: wrapper.attributes.Journalist,
           Busy: wrapper.attributes.Busy,
           Date: wrapper.attributes.Date,
+
           Photographer: wrapper.attributes.Photographer,
           Busy_Photographer: wrapper.attributes.Busy_Photographer,
           DatePhotographer: wrapper.attributes.DatePhotographer,
           
         };
-        /** Add Article is not connected to database anymore */
+       
 
         console.log(mappedArticle);
 

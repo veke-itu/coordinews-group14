@@ -10,6 +10,8 @@ import Staff from "./Components/Staff";
 import LandingPage from "./Components/LandingPage";
 import AddArticle from "./Components/AddArticle";
 import ArticleId from "./Components/ArticleId";
+import Form from "./Components/Form";
+import IdeaConverter from "./Components/IdeaConverter";
 
 function App() {
   return (
@@ -24,7 +26,16 @@ function App() {
           <Route path="articles" element={<Articles />} />
           <Route path="staff" element={<Staff />} />
           <Route path="Add_Article" element={<AddArticle />} />
-          <Route path="ArticleId" element={<ArticleId />} />
+          <Route
+            path="/articles/articleDetails/:articleId"
+            element={<IdeaConverter />}
+          />
+          <Route
+            path="/ideas/ideaDetails/:ideaId"
+            element={<IdeaConverter />}
+          />
+          <Route path="addIdea" element={<Form />} />
+
           <Route path="/" element={<LandingPage />} />
         </Routes>
       </HashRouter>

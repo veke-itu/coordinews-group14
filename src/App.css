@@ -174,7 +174,7 @@
 
 .background--box {
   width: 1200px;
-  height: 464px;
+  height: 800px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 48px;
@@ -311,7 +311,7 @@ tbody {
 }
 
 tbody {
-  height: 244px;
+  height: 544px;
   overflow-y: auto;
   overflow-x: hidden;
 }

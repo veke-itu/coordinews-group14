@@ -1,11 +1,11 @@
-import { getArticles } from "../DatabaseInteraction/db";
+import { getIdeas } from "../DatabaseInteraction/db";
 import { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-export default function Articletable() {
-  const [Articles, setArticles] = useState();
+export default function IdeaTable() {
+  const [Ideas, setIdeas] = useState();
   const [search, setSearch] = useState("");
   const [section, setSection] = useState({});
   const [date, setDate] = useState();
@@ -15,28 +15,29 @@ export default function Articletable() {
   };
 
   useEffect(() => {
-    getArticles().then((Articles) => {
-      const articlesMapped = Articles.map((wrapper) => {
-        const mappedArticle = {
+    getIdeas().then((Ideas) => {
+      const ideasMapped = Ideas.map((wrapper) => {
+        console.log("wrapper: ", wrapper);
+        const mappedIdeas = {
           Details: wrapper.id,
-          Title: wrapper.attributes.Title,
-          Section: wrapper.attributes.Section,
-          Journalist: wrapper.attributes.Journalist,
-          Photographer: wrapper.attributes.Photographer,
-          State: wrapper.attributes.State,
-          Size: wrapper.attributes.Size,
-          Deadline: wrapper.attributes.Deadline,
+          Title: wrapper.attributes.title,
+          Section: wrapper.attributes.section,
+          Source: wrapper.attributes.source,
+          Potential: wrapper.attributes.potential,
+          Expiration: wrapper.attributes.expiration,
         };
         /** Add Article is not connected to database anymore .toString().slice(4, 15) */
-
-        return mappedArticle;
+        console.log("mappedIdeas: ", mappedIdeas);
+        return mappedIdeas;
       });
 
-      setArticles(articlesMapped);
+      setIdeas(ideasMapped);
     });
   }, []);
 
-  if (!Articles) {
+  console.log("Idea: ", Ideas);
+
+  if (!Ideas) {
     return (
       <Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>
@@ -60,63 +61,58 @@ export default function Articletable() {
 
   console.log("Set Date : ", date);
 
-  const filteredArticles = Object.values(Articles).filter((article) => {
+  const filteredIdeas = Object.values(Ideas).filter((idea) => {
     if (
       section.section === undefined &&
-      section.journalist === undefined &&
+      section.source === undefined &&
       date === undefined
     ) {
-      return article.Title.includes(search);
-    } else if (
-      section.journalist === undefined &&
-      section.section === undefined
-    ) {
-      return article.Title.includes(search) && article.Deadline.includes(date);
+      return idea.Title.includes(search);
+    } else if (section.source === undefined && section.section === undefined) {
+      return idea.Title.includes(search) && idea.Expiration.includes(date);
     } else if (section.section === undefined && date === undefined) {
       return (
-        article.Title.includes(search) &&
-        article.Journalist.includes(section.journalist)
+        idea.Title.includes(search) && idea.Source.includes(section.source)
       );
-    } else if (section.journalist === undefined && date === undefined) {
+    } else if (section.source === undefined && date === undefined) {
       return (
-        article.Title.includes(search) &&
-        article.Section.includes(section.section)
+        idea.Title.includes(search) && idea.Section.includes(section.section)
       );
     } else if (section.section === undefined) {
-      article.Title.includes(search) &&
-        article.Journalist.includes(section.journalist) &&
-        article.Deadline.includes(date);
-    } else if (section.journalist === undefined) {
-      article.Title.includes(search) &&
-        article.Section.includes(section.section) &&
-        article.Deadline.includes(date);
+      idea.Title.includes(search) &&
+        idea.Source.includes(section.source) &&
+        idea.Expiration.includes(date);
+    } else if (section.source === undefined) {
+      idea.Title.includes(search) &&
+        idea.Section.includes(section.section) &&
+        idea.Expiration.includes(date);
     } else if (
       section.section != undefined &&
-      section.journalist != undefined &&
+      section.source != undefined &&
       date != undefined
     ) {
       return (
-        article.Title.includes(search) &&
-        article.Section.includes(section.section) &&
-        article.Journalist.includes(section.journalist) &&
-        article.Deadline.includes(date)
+        idea.Title.includes(search) &&
+        idea.Section.includes(section.section) &&
+        idea.source.includes(section.source) &&
+        idea.Expiration.includes(date)
       );
     } else {
       return [];
     }
   });
 
-  const rowLength = filteredArticles.length;
-  const rowLengthUnfiltered = Articles.length;
+  const rowLength = filteredIdeas.length;
+  const rowLengthUnfiltered = Ideas.length;
 
   const Section = [];
-  const Journalist = [];
+  const source = [];
   const Photographer = [];
 
   for (let i = 0; i < rowLengthUnfiltered; i++) {
-    Section.push(Articles[i].Section);
-    Journalist.push(Articles[i].Journalist);
-    Photographer.push(Articles[i].Photographer);
+    Section.push(Ideas[i].Section);
+    source.push(Ideas[i].source);
+    Photographer.push(Ideas[i].Photographer);
   }
 
   function onlyUnique(value, index, self) {
@@ -124,7 +120,7 @@ export default function Articletable() {
   }
 
   var distinctSection = Section.filter(onlyUnique);
-  var distinctJournalist = Journalist.filter(onlyUnique);
+  var distinctsource = source.filter(onlyUnique);
   var distinctPhotographer = Photographer.filter(onlyUnique);
 
   function handleSection(event) {
@@ -157,17 +153,13 @@ export default function Articletable() {
               <option>{distinctSection[index]}</option>
             ))}
           </select>
-          <select
-            name="journalist"
-            value={section.journalist}
-            onChange={handleSection}
-          >
+          <select name="source" value={section.source} onChange={handleSection}>
             <option value="" selected disabled hidden>
               Please Select Here
             </option>
 
             {Array.from({ length: rowLengthUnfiltered }).map((_, index) => (
-              <option>{distinctJournalist[index]}</option>
+              <option>{distinctsource[index]}</option>
             ))}
           </select>
 
@@ -185,13 +177,13 @@ export default function Articletable() {
         <thead>
           <br></br>
           <tr>
-            {Object.keys(Articles[0]).map((articleHeader) => (
-              <th key={articleHeader}>{articleHeader}</th>
+            {Object.keys(Ideas[0]).map((ideaHeader) => (
+              <th key={ideaHeader}>{ideaHeader}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {filteredArticles.map((article) => (
+          {filteredIdeas.map((idea) => (
             <tr>
               {/* TODO: Ask for help on this one with TA's - My attempts with nested for loops and map functions broke */}
               <td as={Link} to="/Add_Article">
@@ -200,18 +192,16 @@ export default function Articletable() {
                 <Button
                   variant="light"
                   as={Link}
-                  to={"/articles/articleDetails/" + article.Details}
+                  to={"/ideas/ideaDetails/" + idea.Details}
                 >
                   See more{"\uD83D\uDD0D"}
                 </Button>
               </td>
-              <td>{article.Title}</td>
-              <td>{article.Section}</td>
-              <td>{article.Journalist}</td>
-              <td>{article.Photographer}</td>
-              <td>{article.State}</td>
-              <td>{article.Size}</td>
-              <td>{article.Deadline}</td>
+              <td>{idea.Title}</td>
+              <td>{idea.Section}</td>
+              <td>{idea.Source}</td>
+              <td>{idea.Potential}</td>
+              <td>{idea.Expiration}</td>
             </tr>
           ))}
         </tbody>
