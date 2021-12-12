@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import "../App.css";
 import Popup from "./Popup";
 
-export default function IdeaId() {
+export default function IdeaId(props) {
   const [idea, setIdea] = useState();
   const [articles, setArticles] = useState([]);
   const [newArticle, setNewArticle] = useState({});
@@ -39,6 +39,8 @@ export default function IdeaId() {
     });
     console.log("Change ID: ", event.target.value);
   }
+
+  props.passChildData([ideaId, idea.Expiration]);
 
   return (
     <div className="form-content-right">
@@ -130,43 +132,46 @@ export default function IdeaId() {
             </div>
           </div>
         </div>
-
         <div className="form-inputs">
-          <label className="form-label">Section</label>
-          <select
-            className="form-input"
-            type="text"
-            name="section"
-            onChange={handleChange}
-          >
-            <option value="" selected disabled hidden>
-              Please confirm the section: Currently {idea.Section}
-            </option>
-            <option>News</option>
-            <option>Sport</option>
-            <option>Politics</option>
-            <option>Local</option>
-            <option>World</option>
-            <option>Business</option>
-            <option>other</option>
-          </select>
-        </div>
+          <div className="form-inputs1">
+            <div className="form-inputs">
+              <label className="form-label">Section</label>
+              <select
+                className="form-input"
+                type="text"
+                name="section"
+                onChange={handleChange}
+              >
+                <option value="" selected disabled hidden>
+                  Confirm the section: {idea.Section}
+                </option>
+                <option>News</option>
+                <option>Sport</option>
+                <option>Politics</option>
+                <option>Local</option>
+                <option>World</option>
+                <option>Business</option>
+                <option>other</option>
+              </select>
+            </div>
 
-        <div className="form-inputs">
-          <label className="form-label">Work Amount</label>
-          <select
-            className="form-input"
-            type="text"
-            name="size"
-            onChange={handleChange}
-          >
-            <option value="" selected disabled hidden>
-              Please select the work amount:
-            </option>
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-          </select>
+            <div className="form-inputs">
+              <label className="form-label">Work Amount</label>
+              <select
+                className="form-input"
+                type="text"
+                name="size"
+                onChange={handleChange}
+              >
+                <option value="" selected disabled hidden>
+                  Please select the work amount:
+                </option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <div className="form-inputs">
@@ -180,10 +185,10 @@ export default function IdeaId() {
             <option value="" selected disabled hidden>
               Please select the current state of work:
             </option>
-            <option>P</option>
-            <option>A</option>
-            <option>D</option>
-            <option>C</option>
+            <option>0.25</option>
+            <option>0.5</option>
+            <option>0.75</option>
+            <option>1</option>
           </select>
         </div>
 
