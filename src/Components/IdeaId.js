@@ -13,18 +13,14 @@ export default function IdeaId(props, { submitForm }) {
   const [newArticle, setNewArticle] = useState({});
 
   const { ideaId } = useParams();
-  console.log("Check Params: ", ideaId);
 
   async function getIdeaFromDb() {
     const idea = await getIdea(ideaId);
     setIdea(idea);
+    props.passChildData([ideaId, idea.Expiration]);
   }
 
   useEffect(getIdeaFromDb, []);
-
-  useEffect(() => {
-    console.log("Use Effect idea:", idea);
-  }, [idea]);
 
   async function handleUpload(e) {
     e.preventDefault();
@@ -35,7 +31,6 @@ export default function IdeaId(props, { submitForm }) {
   useEffect(() => {
     if (articles.length > 0) {
       uploadArticle(articles);
-      // setButtonPopup(true);
     }
   }, [articles]);
 
@@ -54,8 +49,6 @@ export default function IdeaId(props, { submitForm }) {
     });
     console.log("Changer: ", event.target.value);
   }
-
-  props.passChildData([ideaId, idea.Expiration]);
 
   return (
     <div className="form-content-right">
