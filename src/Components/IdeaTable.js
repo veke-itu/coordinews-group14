@@ -192,7 +192,7 @@ export default function IdeaTable() {
                 <Button
                   variant="light"
                   as={Link}
-                  to={"/Ideas/ideaDetails/" + idea.Details}
+                  to={"/ideas/ideaDetails/" + idea.Details}
                 >
                   See more{"\uD83D\uDD0D"}
                 </Button>

@@ -42,6 +42,7 @@ async function getIdea(ideaId) {
   return {
     IdeaId: idea.get("objectId"),
     Title: idea.get("title"),
+    Comment: idea.get("comment"),
     Section: idea.get("section"),
     Source: idea.get("source"),
     Potential: idea.get("potential"),

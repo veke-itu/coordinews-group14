@@ -15,7 +15,7 @@ const Form = () => {
     <>
       <div className="form-container">
         <div className="form-content-left">
-          <img className="form-img" src={Idea} alt="news icon" />
+          <img className="form-img" src={Idea} alt="idea icon" />
         </div>
         {!isSubmitted ? <AddIdea submitForm={submitForm} /> : <FormSuccess />}
       </div>
