@@ -9,9 +9,11 @@
   grid-template-columns: 0.5fr 1fr;
 }
 
-.close-btn {
+.trash-btn {
+  display: flex;
+  flex-direction: row-reverse;
   position: absolute;
-  top: 2%;
+  bottom: 2%;
   right: 3%;
   font-size: 1.5rem;
   z-index: 1;

@@ -6,6 +6,7 @@ import ArticleId from "./ArticleId";
 import FormSuccess from "./FormSuccess";
 import News from "../Images/News.png";
 import "../CSS/Form.css";
+import { FaTrash, FaShareAlt } from "react-icons/fa";
 
 const IdeaConverter = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -16,6 +17,10 @@ const IdeaConverter = () => {
   return (
     <>
       <div className="form-container">
+        <span className="trash-btn">
+          <FaTrash />
+          <FaShareAlt />
+        </span>
         <div className="form-content-left">
           <img className="form-img" src={News} alt="news icon" />
         </div>
