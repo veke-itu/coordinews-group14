@@ -8,7 +8,7 @@ import Popup from "./Popup";
 
 import { uploadArticle } from "../DatabaseInteraction/db";
 
-export default function () {
+export default function ArticleId(props) {
   const [article, setArticle] = useState();
   const [articles, setArticles] = useState([]);
 
@@ -20,6 +20,7 @@ export default function () {
   async function getArticleFromDb() {
     const article = await getArticle(articleId);
     setArticle(article);
+    props.passChildData([articleId, article.Deadline]);
   }
 
   useEffect(getArticleFromDb, []);
@@ -36,13 +37,6 @@ export default function () {
     );
   }
 
-  // useEffect(() => {
-  //   if (articles.length > 0) {
-  //     uploadArticle(articles);
-  //     // navigate("/");
-  //   }
-  // }, [articles]);
-
   function handleChange(event) {
     setNewArticle({
       ...newArticle,
@@ -52,17 +46,9 @@ export default function () {
   }
 
   return (
-    //TODO: take component out and add information via prop
-
     <div className="form-content-right">
       <form className="form">
-        <h1>
-          Submit an article by filling the missing pieces!
-          <span style={{ color: "#D7BADD" }}>
-            {" "}
-            (Click on the elements to edit){" "}
-          </span>
-        </h1>
+        <h1>Edit or Submit the article!</h1>
         <div className="form-inputs">
           <label className="form-label">Title</label>
           <input
@@ -70,6 +56,7 @@ export default function () {
             type="text"
             name="title"
             defaultValue={article.Title}
+            value={newArticle.title}
             onChange={handleChange}
           />
         </div>
@@ -81,6 +68,7 @@ export default function () {
             type="text"
             name="comment"
             defaultValue={article.Comment}
+            value={newArticle.comment}
             onChange={handleChange}
           />
         </div>
@@ -88,24 +76,16 @@ export default function () {
         <div className="form-inputs">
           <div className="form-inputs1">
             <div className="form-inputs">
-              <label className="form-label">Idea Source</label>
-              <input
-                className="form-input1"
-                type="text"
-                name="source"
-                defaultValue={article.Journalist}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="form-inputs">
               <label className="form-label">Journalist</label>
               <select
                 className="form-input1"
                 type="text"
                 name="journalist"
+                defaultValue={article.Journalist}
+                value={newArticle.journalist}
                 onChange={handleChange}
               >
+                {/* TODO: Exchange with database values from journalist class */}
                 <option value="" selected disabled hidden>
                   Please Select
                 </option>
@@ -125,7 +105,9 @@ export default function () {
               <select
                 className="form-input1"
                 type="text"
-                name="photogrpaher"
+                name="photographer"
+                value={newArticle.photographer}
+                defaultValue={article.Photographer}
                 onChange={handleChange}
               >
                 <option value="" selected disabled hidden>
@@ -142,43 +124,50 @@ export default function () {
             </div>
           </div>
         </div>
-
         <div className="form-inputs">
-          <label className="form-label">Section</label>
-          <select
-            className="form-input"
-            type="text"
-            name="section"
-            onChange={handleChange}
-          >
-            <option value="" selected disabled hidden>
-              Please confirm the section: Currently {article.Section}
-            </option>
-            <option>News</option>
-            <option>Sport</option>
-            <option>Politics</option>
-            <option>Local</option>
-            <option>World</option>
-            <option>Business</option>
-            <option>other</option>
-          </select>
-        </div>
+          <div className="form-inputs1">
+            <div className="form-inputs">
+              <label className="form-label">Section</label>
+              <select
+                className="form-input"
+                type="text"
+                name="section"
+                value={newArticle.section}
+                defaultValue={article.section}
+                onChange={handleChange}
+              >
+                <option value="" selected disabled hidden>
+                  Section:
+                </option>
+                <option>News</option>
+                <option>Sport</option>
+                <option>Politics</option>
+                <option>Local</option>
+                <option>World</option>
+                <option>Business</option>
+                <option>other</option>
+              </select>
+            </div>
 
-        <div className="form-inputs">
-          <label className="form-label">Work Amount</label>
-          <select
-            className="form-input"
-            type="text"
-            name="size"
-            onChange={handleChange}
-          >
-            <option value="" selected disabled hidden>
-              Please select the work amount:
-            </option>
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-          </select>
+            <div className="form-inputs">
+              <label className="form-label">Work Amount</label>
+              <select
+                className="form-input"
+                type="text"
+                name="size"
+                value={newArticle.size}
+                defaultValue={article.Size}
+                onChange={handleChange}
+              >
+                <option value="" selected disabled hidden>
+                  Please select the work amount:
+                </option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <div className="form-inputs">
@@ -186,33 +175,46 @@ export default function () {
           <select
             className="form-input"
             type="text"
-            name="size"
+            name="state"
+            value={newArticle.state}
+            defaultValue={article.State}
             onChange={handleChange}
           >
             <option value="" selected disabled hidden>
               Please select the current state of work:
             </option>
-            <option>P</option>
-            <option>A</option>
-            <option>D</option>
-            <option>C</option>
+            <option>0.25</option>
+            <option>0.5</option>
+            <option>0.75</option>
+            <option>1</option>
           </select>
         </div>
 
         <div className="form-inputs">
-          <label className="form-label">Deadline Date</label>
+          <label className="form-label">
+            New Deadline Date
+            <span style={{ color: "#D7BADD" }}>
+              {" "}
+              (Previously {article.Deadline}){" "}
+            </span>
+          </label>
           <input
             className="form-input"
             type="date"
             name="deadline"
-            defaultValue={newArticle.deadline}
+            value={newArticle.deadline}
             onChange={handleChange}
           />
         </div>
 
-        <button className="form-input-btn" type="submit">
-          Submit Article
-        </button>
+        <div className="form-inputs2">
+          <button className="form-input-btn" type="submit">
+            Edit Article<span style={{ color: "#D7BADD" }}>(Dummy)</span>
+          </button>
+          <button className="form-input-btn" type="submit">
+            Submit Article<span style={{ color: "#D7BADD" }}>(Dummy)</span>
+          </button>
+        </div>
         <span className="form-input-login">
           You changed your mind about the article? Go <a href="#">back</a>
         </span>

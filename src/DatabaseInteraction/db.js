@@ -19,6 +19,7 @@ async function getArticle(articleId) {
   const article = await query.get(articleId);
   return {
     ArticleId: article.get("objectId"),
+    Comment: article.get("Comment"),
     Title: article.get("Title"),
     Section: article.get("Section"),
     Journalist: article.get("Journalist"),

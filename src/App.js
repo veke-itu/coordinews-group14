@@ -28,7 +28,7 @@ function App() {
           <Route path="Add_Article" element={<AddArticle />} />
           <Route
             path="/articles/articleDetails/:articleId"
-            element={<IdeaConverter />}
+            element={<Form />}
           />
           <Route
             path="/ideas/ideaDetails/:ideaId"
