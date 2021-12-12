@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import "../App.css";
 import Popup from "./Popup";
 import { uploadArticle } from "../DatabaseInteraction/db";
+import Articles from "./Ideas";
 
 export default function IdeaId(props, { submitForm }) {
   const [idea, setIdea] = useState();
@@ -25,8 +26,9 @@ export default function IdeaId(props, { submitForm }) {
   async function handleUpload(e) {
     e.preventDefault();
     setArticles((articles) => [...articles, newArticle]);
-    submitForm();
+    // submitForm;
   }
+  console.log("Missing Check:", articles);
 
   useEffect(() => {
     if (articles.length > 0) {
@@ -48,6 +50,7 @@ export default function IdeaId(props, { submitForm }) {
       [event.target.name]: event.target.value,
     });
     console.log("Changer: ", event.target.value);
+    console.log("new: ", newArticle);
   }
 
   return (
@@ -125,7 +128,7 @@ export default function IdeaId(props, { submitForm }) {
               <select
                 className="form-input1"
                 type="text"
-                name="photogrpaher"
+                name="photographer"
                 value={newArticle.photographer}
                 onChange={handleChange}
               >
