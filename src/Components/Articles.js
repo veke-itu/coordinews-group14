@@ -12,8 +12,10 @@ export default function Articles() {
         <>
             <div>
                 <p className="overview--header">Article Overview</p>
-                
-                <button className="status-buttons">Archive</button>
+
+                <button className="current-btn">Current</button>
+
+                <button className="archive-btn">Archive</button>
                 
             </div>
             <div className="background--box">

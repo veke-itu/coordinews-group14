@@ -4,12 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./App.css";
-
 import Parse from "parse";
 
 Parse.initialize(
-  "KqoIYLreqOxM9D4hI1VyukJBa7yj03D1dTd75CzR",
-  "zPHndnwR1xEJVLyz1An9bktfus78e1uKmP9F4lVJ"
+  "grXin7k7BOWTyMnLo93KE9cHGsz4pxkQGNdo4IjO",
+  "3pe5VGRtmuKTYyW3dEIewgZCu7bzziEXjwwoyiRp"
 );
 
 Parse.serverURL = "https://parseapi.back4app.com/";

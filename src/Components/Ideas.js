@@ -1,8 +1,18 @@
 export default function Ideas() {
+
     return(
     <div>
-        <h1>All Ideas for the next newspaper</h1>
-        <h3>Add one if you want to!</h3>
+        <div>
+            <p className="overview--header">Idea Overview</p>
+
+            <button className="current-btn">Current</button>
+
+            <button className="archive-btn">Archive</button>
+        </div>
+
+        <div className="background--box">
+            
+        </div>
     </div>
     )
 }

@@ -1,7 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Parse from "parse";
 import { useNavigate, Link } from "react-router-dom";
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import "../App.css"
 
 export function NavigationBar() {
@@ -16,18 +15,11 @@ export function NavigationBar() {
 
   return (
       <div className="navBar--general">
-        <Navbar expand="sm">
+        <Navbar expand="lg">
           <Container>
-          
             <Navbar.Brand  as={Link} to="/">
-              <img
-                src="./Images/news-logo.png"
-                width="30"
-                height="30"
-                alt="React Bootstrap logo"
-              />
+              Newsplan <br />
             </Navbar.Brand>
-
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto" activeKey={window.location.pathname}>
@@ -36,6 +28,7 @@ export function NavigationBar() {
                       <Nav.Link as={Link} to="/signup">
                         Sign Up
                       </Nav.Link>
+
                       <Nav.Link as={Link} to="/login">
                         LogIn
                       </Nav.Link>
@@ -47,9 +40,11 @@ export function NavigationBar() {
                       <Nav.Link as={Link} to="/ideas">
                         Ideas
                       </Nav.Link>
+
                       <Nav.Link as={Link} to="/articles">
                         Articles
                       </Nav.Link>
+                      
                       <Nav.Link as={Link} to="/staff">
                         Staff
                       </Nav.Link>

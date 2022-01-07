@@ -18,11 +18,10 @@ export default function SignUp() {
     try {
       await user.signUp();
     } catch (error) {
-      alert("Error: " + error.message + "Please go back an try again :)");
+      alert("Error: " + error.message + "Please go back and try again :)");
     }
     navigate("/ideas");
   }
-
   function usernameChange(e) {
     setUsername(e.target.value);
   }
@@ -35,9 +34,8 @@ export default function SignUp() {
   }
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <br />
+    < div className="forms--general">
+ 
       <br />
       <br />
 
@@ -68,9 +66,7 @@ export default function SignUp() {
         />
       </Form.Group>
 
-      <Button variabt="primary" onClick={createAccount}>
-        Create Account
-      </Button>
-    </>
+      <Button className="form-btn" variabt="primary" onClick={createAccount}>Create Account</Button>
+    </div>
   );
 }

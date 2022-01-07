@@ -20,7 +20,7 @@ export default function Login() {
   }
 
   return (
-    <>
+    <div className="forms--general">
       <br />
       <br />
       <Form>
@@ -32,7 +32,6 @@ export default function Login() {
             placeholder="Username"
           />
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -41,10 +40,8 @@ export default function Login() {
             placeholder="Password"
           />
         </Form.Group>
-        <Button onClick={handleLoginAttempt} variant="primary" type="submit">
-          Submit
-        </Button>
+        <Button className="form-btn" onClick={handleLoginAttempt} variant="primary" type="submit">Submit</Button>
       </Form>
-    </>
+    </div>
   );
 }
